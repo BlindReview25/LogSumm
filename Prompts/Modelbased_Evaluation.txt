@@ -1,0 +1,248 @@
+########################################################################################################
+########################################Format 1-Evaluation#############################################
+########################################################################################################
+
+You are an expert in log analysis and summarization. Your task is to evaluate the quality of a log summary that has been generated from a log chunk.
+
+Task Description:
+
+This task involves assessing a summary generated from a log chunk. The summary must:
+- Include only critical log events (e.g., errors, failures, system malfunctions, or potential issues)
+- Exclude routine messages and redundant entries
+- Enclose within <start>...</end> tags
+- Return <start>normal</end> if no critical events are found
+- Avoid any extra commentary or formatting outside the tags
+
+Make sure put the required tags for scores and explanations.
+
+Evaluation Criteria:
+
+Evaluate the generated summary based on the following four aspects:
+1. Completeness: Does the summary capture all important critical events from the log chunk, as reflected in the ground truth, while avoiding non-critical content?
+2. Linguistic Features: Is the summary grammatically correct, concise, clear, and appropriate for an operations team?
+3. Correct Structure: Does the summary strictly follow the required format inside <start>...</end> tags, and no extra text or formatting violations?
+4. Semantic Alignment: Does the summary accurately represent the content of the log chunk, avoiding fabrication, distortion, or omission of key event details?
+
+Scoring:
+For each criterion, provide a brief explanation and a score (0–5, where 0 = completely wrong, 5 = perfect). If any input (generated summary) is missing, assign 0 for all criteria.
+
+Now, evaluate the following summary:
+
+Log Chunk:
+```{log-chunk}```
+Ground Truth Summary:
+```{ground-truth}```
+Generated Summary:
+```{generated-summary}```
+
+Evaluation:
+
+1. Completeness:
+Explanation:<EC></EC>
+Score: <SC></SC>
+
+2. Linguistic Features:
+Explanation:<EL></EL>
+Score:<SL></SL>
+
+3. Correct Structure:
+Explanation: <ES></ES>
+Score:<SS></SS>
+
+4. Semanitic Alignment:
+Explanation:<EA></EA>
+Score:<SA></SA>
+
+
+########################################################################################################
+########################################Format 2-Evaluation#############################################
+########################################################################################################
+You are an expert in log analysis and summarization. Your task is to evaluate the quality of an interpretive log summary that has been generated from a log chunk.
+
+Task Description:
+This task involves assessing a generated interpretation of a log chunk. The interpretation should focus on critical events (e.g., errors, warnings, system malfunctions, performance issues, or potential risks) and their impact on system operations.
+The interpretation must be:
+- Concise and clearly written
+- Focused only on critical content
+- Fully enclosed in <start>...</end> tags
+- If no critical events are found, return: <start>normal</end>
+
+Make sure put the required tags for scores and explanations.
+
+Evaluation Criteria:
+Evaluate the generated interpretation based on the following four aspects:
+1. Completeness: Does the interpretation include the most important and relevant information from the log chunk, as reflected in the ground truth?
+2. Linguistic Features: Is the interpretation grammatically correct, concise, clear, and appropriate for an operations team?
+3. Correct Structure: Is the interpretation enclosed in a single <start>...</end> tag, with no extra text or formatting errors outside the tag?
+4. Semantic Alignment: Does the interpretation accurately represent the log chunk’s critical points without introducing false information or misinterpretations?
+
+Scoring:
+For each criterion, provide a brief explanation and a score (0–5, where 0 = completely wrong, 5 = perfect). If any input (generated interpretation) is missing, assign 0 for all criteria.
+
+Now, evaluate the following interpretation:
+
+Log Chunk:
+```{log-chunk}```
+
+Ground Truth interpretation:
+```{ground-truth}```
+
+Generated interpretation:
+```{generated-interpretation}```
+
+Evaluation:
+
+1. Completeness:
+Explanation:<EC></EC>
+Score: <SC></SC>
+
+2. Linguistic Features:
+Explanation:<EL></EL>
+Score:<SL></SL>
+
+3. Correct Structure:
+Explanation: <ES></ES>
+Score:<SS></SS>
+
+4. Semanitic Alignment:
+Explanation:<EA></EA>
+Score:<SA></SA>
+
+########################################################################################################
+########################################Format 3-Evaluation#############################################
+########################################################################################################
+You are an expert in log analysis and summarization. Your task is to evaluate the quality of a structured summary generated from a log chunk. 
+
+Task Description:
+
+This task involves assessing a structured interpretive summary generated from a log chunk. The summary must:
+
+- Focus only on critical log events (e.g., errors, warnings, system malfunctions, or potential issues).
+- Represent each event in the following structure:
+ <start>[event: <log event>] [severity: <0–5>] [root cause: <brief explanation>] [potential issues: <brief description>] [impact: <brief system impact>] [solution: <brief resolution>]</end>
+- Exclude routine messages and redundant details.
+- Return <start>normal</end> if there are no critical events.
+- Use only one set of tags per event and no text outside the tags.
+
+Make sure put the required tags for scores and explanations.
+
+Evaluation Criteria:
+Evaluate the generated summary based on the following four aspects:
+
+- Completeness: Does the summary include all critical events from the log chunk as reflected in the ground truth, with proper identification of severity, cause, and impact?
+- Linguistic Features: Is the summary grammatically correct, clear, concise, and written in a way that is understandable and useful for a technical operations team?
+- Correct Structure: Is each critical event formatted exactly as specified (within a single <start>...</end> block, using all required fields in correct order with appropriate delimiters)? Are there no extraneous details or tags?
+- Semantic Alignment: Does the summary accurately represent the log chunk’s critical events without hallucinating causes, impacts, or solutions? Are root causes, severity scores, and solutions realistically inferred from the log content?
+
+
+Scoring:
+For each criterion, provide a brief explanation and a score (0–5, where 0 = completely wrong, 5 = perfect). If any input (generated summary) is missing, assign 0 for all criteria.
+
+
+Now, evaluate the following summary:
+
+Log Chunk:
+{log-chunk}
+
+Ground Truth Summary:
+{ground-truth}
+
+Generated Summary:
+{generated-summary}
+
+Evaluation:
+
+1. Completeness:
+Explanation:<EC></EC>
+Score: <SC></SC>
+
+2. Linguistic Features:
+Explanation:<EL></EL>
+Score:<SL></SL>
+
+3. Correct Structure:
+Explanation: <ES></ES>
+Score:<SS></SS>
+
+4. Semanitic Alignment:
+Explanation:<EA></EA>
+Score:<SA></SA>
+
+########################################################################################################
+########################################Format 4-Evaluation#############################################
+########################################################################################################
+You are an expert in log analysis and summarization. Your task is to evaluate the quality of a structured log summary that includes a summary of critical events, definitions of key terms, and a brief interpretation.
+
+Task Description:
+
+This task involves assessing a structured summary generated from a log chunk. The summary should consist of three parts:
+
+1. Summary: A concise list of critical log events only (e.g., errors, failures, system malfunctions, or potential issues), excluding routine or redundant messages.
+
+2. Definitions: Clear and relevant explanations for key terms necessary to understand or troubleshoot the critical events. These may include technical components, protocols, or system mechanisms.
+
+3. Interpretation: A concise analysis of the critical events, highlighting their potential impact on system behavior, performance, or security.
+
+The full response must be enclosed within:
+
+<start>
+<Summary>...</Summary>
+<Definitions>...</Definitions>
+<Interpretation>...</Interpretation>
+</end>
+
+If no critical events are found, the correct result is:
+<start>normal</end>
+
+Make sure put the required tags for scores and explanations.
+
+Evaluation Criteria:
+
+Evaluate the generated summary based on the following four aspects:
+
+1. Completeness: Does the overall response capture all critical log events from the chunk and provide adequate definitions and interpretation consistent with the ground truth?
+2. Linguistic Features: Is the content grammatically correct, concise, and clear? Is the writing style appropriate for a technical operations audience?
+3. Correct Structure: Is the output properly wrapped within <start>...</end>, and does it include exactly one <Summary>, <Definitions>, and <Interpretation> section in the correct order? Are all sections formatted correctly without extraneous content?
+4. Semanitic Alignment: Does the summary, definitions, and interpretation accurately reflect the content of the log chunk without hallucinating causes, exaggerating impacts, or false information?
+
+Scoring:
+For each criterion, provide a brief explanation and a score (0–5, where 0 = completely wrong, 5 = perfect). If any input (generated summary) is missing, assign 0 for all criteria.
+
+Now, evaluate the following summary:
+
+Log Chunk:
+{log-chunk}
+
+Ground Truth Summary:
+{ground-truth}
+
+Generated Summary:
+{generated-summary}
+
+Evaluation:
+
+1. Completeness:
+Explanation:<EC></EC>
+Score: <SC></SC>
+
+2. Linguistic Features:
+Explanation:<EL></EL>
+Score:<SL></SL>
+
+3. Correct Structure:
+Explanation: <ES></ES>
+Score:<SS></SS>
+
+4. Semanitic Alignment:
+Explanation:<EA></EA>
+Score:<SA></SA>
+
+
+
+
+
+
+
+
+
+

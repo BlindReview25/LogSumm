@@ -1,0 +1,119 @@
+########################################################################################################
+########################################Prompt 1########################################################
+########################################################################################################
+Extractive Summary: Only return the significant log events
+--------------------------------------------------------------------------------------------------------
+You are an advanced summarization assistant. Your task is to summarize the given log chunk.
+
+Summarization Task:
+Extract and return only critical log events indicating errors, failures, system malfunctions, or potential issues. Exclude routine events. In case of redundancy, only return one of them. Provide the result in <start></end> tags. If no critical events are found, return: <start>normal</end>.
+
+Example:
+
+Log chunk:
+LDAP: Built with OpenLDAP LDAP SDK
+LDAP: SSL support unavailable
+suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+Digest: generating secret for digest authentication ...
+Digest: done
+
+Summary:
+<start>LDAP: SSL support unavailable</end>
+
+Now, analyze the following log chunk and provide its summary: 
+
+
+########################################################################################################
+########################################Prompt 2########################################################
+########################################################################################################
+Interpretation for the log chunk
+--------------------------------------------------------------------------------------------------------
+You are an advanced log analysis assistant. Your task is to analyze the given log chunk and generate a concise interpretation.
+
+Interpretation Task: 
+Provide a brief interpretation of this log chunk, focusing on critical events (e.g., errors, warnings, performance issues, system malfunctions, potential issues) and their impact on system operations. Keep it concise, avoid redundancy, and exclude irrelevant details. Provide the result in <start></end> tags. If no critical events are found, return: <start>normal</end>.
+
+
+Example:
+Log chunk: 
+LDAP: Built with OpenLDAP LDAP SDK
+LDAP: SSL support unavailable
+suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+Digest: generating secret for digest authentication ...
+Digest: done
+
+Interpretation: 
+<start>LDAP is built with OpenLDAP SDK but lacks SSL support, posing a moderate security risk due to potential unencrypted communication. No other critical issues detected.</end>
+
+Now, analyze the following log chunk and provide its interpretation: 
+
+########################################################################################################
+########################################Prompt 3 - formated#############################################
+########################################################################################################
+First summarize then interpret in the defined format
+--------------------------------------------------------------------------------------------------------
+You are an advanced summarization and log analysis assistant. Your task is to analyze the given log chunk, summarize critical log events and provide a concise interpretation in the specified format.
+
+Summarization and Interpretation Task:
+Analyze the provided log chunk and summarize critical log events indicating errors, failures, malfunctions, or potential issues. Exclude routine events and deduplicate redundant entries. In case of redundancy, only return one of them. For each critical event, provide a severity rating (0-5), brief root cause, potential issues, system impact, and solution. Use this format for results:
+
+<start>[event: <log event>] [severity: <0-5>] [root cause: <brief explanation>] [potential issues: <brief description>] [impact: <brief system impact>] [solution: <brief resolution>]</end>
+
+If no critical events are found, return: <start>normal</end>.
+
+Example:
+Log chunk: 
+LDAP: Built with OpenLDAP LDAP SDK
+LDAP: SSL support unavailable
+suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+Digest: generating secret for digest authentication ...
+Digest: done
+
+Summary: 
+<start>[event: LDAP: SSL support unavailable] [severity: 3] [root cause: OpenLDAP library compiled without SSL support or SSL libraries missing] [potential issues: Insecure LDAP connections, vulnerable to eavesdropping or data tampering] [impact: Compromised security for LDAP authentication, affecting user data privacy] [solution: Install SSL/TLS support, configure LDAP for secure connections]</start>
+
+Now, analyze the following log chunk and provide its summary and interpretation: 
+
+########################################################################################################
+########################################Prompt 4########################################################
+########################################################################################################
+Detailed summary and interpret
+--------------------------------------------------------------------------------------------------------
+You are an advanced summarization and log analysis assistant. Your task is to analyze the given log chunk and generate a summary including the critical log events, then provide definitions for important concepts and an interpretation for the log events in summary.
+
+Task:
+
+Analyze the log chunk step-by-step and provide summary, definitions, and interpretation:
+
+1) Summary: Extract and return only critical log events indicating errors, failures, system malfunctions, or potential issues. Exclude routine events. 
+
+2) Definitions: For every concept or term relevant to understanding the critical events or resolving them, provide clear and concise definitions. Prioritize terms that are technical, operational, or diagnostic in nature (e.g., protocols, subsystems, mechanisms).
+
+3) Interpretation: Provide a brief interpretation, focusing on critical events present in summary and their impact on system operations. Keep it concise, avoid redundancy, and exclude irrelevant details. 
+
+If no critical events are found, return: <start>normal</end>.
+
+Example:
+
+Log chunk: 
+LDAP: Built with OpenLDAP LDAP SDK
+LDAP: SSL support unavailable
+suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+Digest: generating secret for digest authentication ...
+Digest: done
+
+
+<start>
+<Summary>LDAP: SSL support unavailable</Summary>
+<Definitions>- LDAP (Lightweight Directory Access Protocol): A protocol used for accessing and managing distributed directory information services over a network.
+- OpenLDAP: An open-source implementation of the LDAP protocol, providing directory services.
+- SSL (Secure Sockets Layer): A cryptographic protocol used to provide secure communication over a network.
+- SSL support unavailable: Indicates that encrypted communication via SSL is not configured or not supported, potentially exposing sensitive data.
+- suEXEC: A feature of Apache HTTP Server that allows users to run CGI and SSI scripts under user IDs different from the web server user ID.
+- Digest authentication: A method of HTTP authentication that uses hashing to secure credentials over a network.</Definitions>
+<Interpretation>LDAP communications are unencrypted, exposing sensitive data (e.g., user credentials) to interception, especially on untrusted networks. This could lead to security breaches, undermining system integrity.</Interpretation>
+</end>
+
+Now, analyze the following log chunk and provide its summary, definitions, and interpretation: 
+
+

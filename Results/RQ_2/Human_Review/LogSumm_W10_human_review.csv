@@ -1,0 +1,854 @@
+dataset,chunk_size,summary_type,log_chunk,student_summary,First response,Second Response
+zookeeper,10,abstractive,"[id=47291] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=16:49:14,782 Level=INFO Location=CommitProcessor:2:ZooKeeperServer@595 Thread=CommitProcessor:2 Component=ZooKeeperServer SourceLine=595 Established session 0x24ed931194200c4 with negotiated timeout 10000 for client /10.10.34.13:37585
+[id=47292] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=16:49:14,783 Level=INFO Location=CommitProcessor:2:ZooKeeperServer@595 Thread=CommitProcessor:2 Component=ZooKeeperServer SourceLine=595 Established session 0x24ed931194200c5 with negotiated timeout 10000 for client /10.10.34.13:37587
+[id=47293] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=16:49:18,000 Level=INFO Location=SessionTracker:ZooKeeperServer@325 Thread=SessionTracker Component=ZooKeeperServer SourceLine=325 Expiring session 0x34ed9ac1c1e00af, timeout of 10000ms exceeded
+[id=47294] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=16:49:18,000 Level=INFO Location=SessionTracker:ZooKeeperServer@325 Thread=SessionTracker Component=ZooKeeperServer SourceLine=325 Expiring session 0x34ed9ac1c1e00ae, timeout of 10000ms exceeded
+[id=47295] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=16:49:18,000 Level=INFO Location=SessionTracker:ZooKeeperServer@325 Thread=SessionTracker Component=ZooKeeperServer SourceLine=325 Expiring session 0x34ed9ac1c1e00aa, timeout of 10000ms exceeded
+[id=47296] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=16:49:18,000 Level=INFO Location=SessionTracker:ZooKeeperServer@325 Thread=SessionTracker Component=ZooKeeperServer SourceLine=325 Expiring session 0x34ed9ac1c1e00ab, timeout of 10000ms exceeded
+[id=47297] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=16:49:18,000 Level=INFO Location=SessionTracker:ZooKeeperServer@325 Thread=SessionTracker Component=ZooKeeperServer SourceLine=325 Expiring session 0x34ed9ac1c1e00ad, timeout of 10000ms exceeded
+[id=47298] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=16:49:18,001 Level=INFO Location=SessionTracker:ZooKeeperServer@325 Thread=SessionTracker Component=ZooKeeperServer SourceLine=325 Expiring session 0x14ed93111f200d3, timeout of 10000ms exceeded
+[id=47299] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=16:49:18,001 Level=INFO Location=SessionTracker:ZooKeeperServer@325 Thread=SessionTracker Component=ZooKeeperServer SourceLine=325 Expiring session 0x24ed931194200c0, timeout of 10000ms exceeded
+[id=47300] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=16:49:18,001 Level=INFO Location=SessionTracker:ZooKeeperServer@325 Thread=SessionTracker Component=ZooKeeperServer SourceLine=325 Expiring session 0x14ed93111f200d0, timeout of 10000ms exceeded","{""summary"": ""Everything looks normal. For background, ZooKeeper established two client sessions and later expired several timed-out sessions.""}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The logs show two sessions established (0x24ed931194200c4 and 0x24ed931194200c5) and later eight sessions expired after exceeding the 10000ms timeout. All at INFO level, with no errors or failures. The summary's claims (two sessions established, several timed-out sessions expired, nothing abnormal) are all supported."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""All events are routine session management: session establishment and SessionTracker expirations due to timeout. No failed operation, quorum or synchronization issue, service unavailability, or abnormal termination is evidenced."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is brief and non-repetitive, accurately conveying normal operation and the relevant session establishment and expiration context without irrelevant or redundant content.""
+}","
+{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The logs confirm that ZooKeeper established two client sessions (47291–47292) and expired eight sessions after their 10000ms timeouts were exceeded (47293–47300). These are consistent with routine session management, and no malfunction is evidenced."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The logs show successful session establishment and timeout-based session expiration. No failed internal operation, service disruption, or other identifiable fault is reported."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary briefly and accurately describes the session establishment and expiration events without unnecessary details or repetition.""
+}"
+linux,10,extractive,"[id=22531] SourceFile=Linux_full.log Month=Jan Day=26 Time=17:23:26 Host=combo Component=named PID=2288 listening on IPv4 interface eth0:17, 63.126.79.100#53
+[id=22532] SourceFile=Linux_full.log Month=Jan Day=26 Time=12:23:26 Host=combo Component=kernel audit(1138296206.190:718151): syscall=102 exit=0 a0=2 a1=fee78e80 a2=29e60c a3=fee78eac items=0 pid=2309 loginuid=-1 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0
+[id=22533] SourceFile=Linux_full.log Month=Jan Day=26 Time=17:23:27 Host=combo Component=named PID=2288 listening on IPv4 interface eth0:18, 63.126.79.105#53
+[id=22534] SourceFile=Linux_full.log Month=Jan Day=26 Time=12:23:27 Host=combo Component=ntpd PID=2309 frequency initialized 0.000 PPM from /var/lib/ntp/drift
+[id=22535] SourceFile=Linux_full.log Month=Jan Day=26 Time=17:23:27 Host=combo Component=named PID=2288 listening on IPv4 interface eth0:19, 63.126.79.110#53
+[id=22536] SourceFile=Linux_full.log Month=Jan Day=26 Time=17:23:28 Host=combo Component=named PID=2288 listening on IPv4 interface eth0:20, 63.126.79.115#53
+[id=22537] SourceFile=Linux_full.log Month=Jan Day=26 Time=12:23:28 Host=combo Component=ntpd PID=2309 configure: keyword ""authenticate"" unknown, line ignored
+[id=22538] SourceFile=Linux_full.log Month=Jan Day=26 Time=17:23:28 Host=combo Component=named PID=2288 listening on IPv4 interface eth0:21, 63.126.79.120#53
+[id=22539] SourceFile=Linux_full.log Month=Jan Day=26 Time=12:23:28 Host=combo Component=mysqld Starting MySQL:  succeeded
+[id=22540] SourceFile=Linux_full.log Month=Jan Day=26 Time=17:23:28 Host=combo Component=named PID=2288 listening on IPv4 interface eth0:22, 63.126.79.125#53","{""critical_events"": [], ""context_events"": [""[id=22531] SourceFile=Linux_full.log Month=Jan Day=26 Time=17:23:26 Host=combo Component=named PID=2288 listening on IPv4 interface eth0:17, 63.126.79.100#53"", ""[id=22539] SourceFile=Linux_full.log Month=Jan Day=26 Time=12:23:28 Host=combo Component=mysqld Starting MySQL:  succeeded""]}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""Both selected context events are verbatim copies of log lines (id=22531, named listening on eth0:17; id=22539, MySQL start succeeded). No claims are added, and the empty critical_events list matches the logs, which show no failures."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The chunk shows only routine activity: named binding to interfaces, an audit syscall record with exit=0, ntpd frequency initialization, and MySQL starting successfully. The ntpd 'keyword \""authenticate\"" unknown, line ignored' message is a harmless configuration diagnostic, not a malfunction. No fault is evidenced."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary has two relevant context events (a named interface binding and a successful MySQL start) and an appropriately empty critical_events list. Nothing is repeated, irrelevant, or unsupported.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""Both selected events are directly supported by the logs: named listens on IPv4 interface eth0:17 (id=22531), and MySQL starts successfully (id=22539)."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The logs show normal service activities and a nonfatal ntpd configuration warning (id=22537), where an unknown keyword is ignored. No actual service malfunction or operational disruption is evidenced."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""Both selected events provide useful, nonredundant context about DNS interface listening and successful MySQL startup. No irrelevant or unsupported information is included.""
+}"
+zookeeper,10,hybrid,"[id=27631] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:20:56,607 Level=ERROR Location=LearnerHandler-/10.10.34.11:52818:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.11:52818 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open
+[id=27632] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:20:56,607 Level=ERROR Location=LearnerHandler-/10.10.34.11:52819:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.11:52819 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open
+[id=27633] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:20:56,608 Level=WARN Location=LearnerHandler-/10.10.34.11:52818:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.11:52818 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.11:52818 ********
+[id=27634] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:20:56,608 Level=WARN Location=LearnerHandler-/10.10.34.11:52819:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.11:52819 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.11:52819 ********
+[id=27635] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:20:56,718 Level=ERROR Location=LearnerHandler-/10.10.34.12:59505:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.12:59505 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open
+[id=27636] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:20:56,718 Level=ERROR Location=LearnerHandler-/10.10.34.12:59506:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.12:59506 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open
+[id=27637] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:20:56,718 Level=ERROR Location=LearnerHandler-/10.10.34.12:59504:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.12:59504 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open
+[id=27638] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:20:56,719 Level=WARN Location=LearnerHandler-/10.10.34.12:59506:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.12:59506 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.12:59506 ********
+[id=27639] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:20:56,718 Level=ERROR Location=LearnerHandler-/10.10.34.12:59508:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.12:59508 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open
+[id=27640] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:20:56,718 Level=WARN Location=LearnerHandler-/10.10.34.12:59505:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.12:59505 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.12:59505 ********","{""critical_events"": [], ""context_events"": [""[id=27633] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:20:56,608 Level=WARN Location=LearnerHandler-/10.10.34.11:52818:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.11:52818 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.11:52818 ********"", ""[id=27635] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:20:56,718 Level=ERROR Location=LearnerHandler-/10.10.34.12:59505:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.12:59505 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open"", ""[id=27640] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:20:56,718 Level=WARN Location=LearnerHandler-/10.10.34.12:59505:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.12:59505 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.12:59505 ********""], ""analysis"": null, ""interpretation"": ""Everything looks normal.""}","{
+  ""faithfulness"": ""partly"",
+  ""faithfulness_reason"": ""The context_events are verbatim log lines (ids 27633, 27635, 27640) and are supported. However, the interpretation 'Everything looks normal.' is contradicted by the logs. Multiple ERROR entries report 'Unexpected exception causing shutdown while sock still open' across LearnerHandler threads for both 10.10.34.11 and 10.10.34.12, followed by GOODBYE messages. Calling this normal is unsupported."",
+  ""fault_completeness"": ""none"",
+  ""fault_completeness_reason"": ""The logs show LearnerHandler threads for follower connections (10.10.34.11:52818/52819 and 10.10.34.12:59504/59505/59506/59508) terminating abnormally due to unexpected exceptions with sockets still open. These are failed internal operations and abnormal handler terminations. The summary leaves critical_events empty and its interpretation says everything is normal, so it does not communicate any of these faults. Quoting a few of the error lines as context without identifying them as failures does not count as coverage."",
+  ""conciseness"": ""partly"",
+  ""conciseness_reason"": ""The context_events are mostly relevant source lines and are not repeated. However, the selection is arbitrary, since it includes only some of the affected handlers, and the interpretation 'Everything looks normal' is misleading rather than useful. The analysis field is null and adds nothing. The summary therefore has some useful content but also unsupported, unhelpful content.""
+}","
+{
+  ""faithfulness"": ""partly"",
+  ""faithfulness_reason"": ""The selected context events are directly supported by the logs, but the interpretation 'Everything looks normal' contradicts the repeated unexpected exceptions causing LearnerHandler shutdowns while sockets remained open."",
+  ""fault_completeness"": ""some"",
+  ""fault_completeness_reason"": ""The logs show six unexpected LearnerHandler shutdowns affecting connections to 10.10.34.11 and 10.10.34.12. The summary includes one such shutdown in context_events but omits the other five and leaves critical_events empty. The GOODBYE messages indicate subsequent handler departures."",
+  ""conciseness"": ""partly"",
+  ""conciseness_reason"": ""The selected events provide useful evidence of handler shutdowns and departures, but the unsupported interpretation 'Everything looks normal' adds misleading information. The GOODBYE messages are relevant context rather than redundant repetitions.""
+}"
+zookeeper,10,abstractive,"[id=22861] SourceFile=Zookeeper_full.log Date=8/24/2015 Time=15:39:13,672 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FastLeaderElection SourceLine=774 Notification time out: 60000
+[id=22862] SourceFile=Zookeeper_full.log Date=8/24/2015 Time=15:40:13,673 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@368 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumCnxManager SourceLine=368 Cannot open channel to 2 at election address /10.10.34.12:3888
+[id=22863] SourceFile=Zookeeper_full.log Date=8/24/2015 Time=15:40:13,674 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@368 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumCnxManager SourceLine=368 Cannot open channel to 3 at election address /10.10.34.13:3888
+[id=22864] SourceFile=Zookeeper_full.log Date=8/24/2015 Time=15:40:13,675 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FastLeaderElection SourceLine=774 Notification time out: 60000
+[id=22865] SourceFile=Zookeeper_full.log Date=8/24/2015 Time=15:41:13,676 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@368 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumCnxManager SourceLine=368 Cannot open channel to 2 at election address /10.10.34.12:3888
+[id=22866] SourceFile=Zookeeper_full.log Date=8/24/2015 Time=15:41:13,677 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@368 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumCnxManager SourceLine=368 Cannot open channel to 3 at election address /10.10.34.13:3888
+[id=22867] SourceFile=Zookeeper_full.log Date=8/24/2015 Time=15:41:13,678 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FastLeaderElection SourceLine=774 Notification time out: 60000
+[id=22868] SourceFile=Zookeeper_full.log Date=8/24/2015 Time=15:42:13,679 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@368 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumCnxManager SourceLine=368 Cannot open channel to 2 at election address /10.10.34.12:3888
+[id=22869] SourceFile=Zookeeper_full.log Date=8/24/2015 Time=15:42:13,680 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@368 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumCnxManager SourceLine=368 Cannot open channel to 3 at election address /10.10.34.13:3888
+[id=22870] SourceFile=Zookeeper_full.log Date=8/24/2015 Time=15:42:13,681 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FastLeaderElection SourceLine=774 Notification time out: 60000","{""summary"": ""The fault: Server 1 could not reach servers 2 and 3 for leader election, and its election notifications remained timed out. For background, the logs show no other quorum or service disruption.""}","{
+  ""faithfulness"": ""partly"",
+  ""faithfulness_reason"": ""The logs support that server 1 repeatedly failed to open channels to servers 2 and 3 at their election addresses (ids 22862-22869). However, the claim that election notifications 'remained timed out' misreads the 'Notification time out: 60000' INFO lines, which report the notification wait/backoff timeout value (60000 ms) and not a timeout failure. The claim that there is no other quorum or service disruption is a mild inference, since the logs neither show nor rule out other disruptions."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The only distinct fault is the repeated inability of server 1 to connect to peers 2 and 3 for leader election (QuorumCnxManager warnings every minute, 15:40-15:42), indicating a quorum/election connectivity failure. The summary captures this essential nature, so no faults are omitted."",
+  ""conciseness"": ""partly"",
+  ""conciseness_reason"": ""The core fault statement is relevant and brief. The notification-timeout claim adds a mischaracterized, unnecessary detail, and the closing 'for background' sentence about no other disruption is filler that adds little supported insight.""
+}","
+{
+  ""faithfulness"": ""partly"",
+  ""faithfulness_reason"": ""Logs confirm repeated failures by server 1 to open election channels to servers 2 and 3, alongside 60000-ms election notification timeouts. However, the claim that there was no other quorum or service disruption is not established by the logs."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The summary covers the persistent unsuccessful election-channel connections to both servers 2 and 3 and the recurring election notification timeouts. No other distinct faults are identifiable."",
+  ""conciseness"": ""partly"",
+  ""conciseness_reason"": ""The connection failures and notification timeouts are relevant and nonredundant. The additional assertion that no other quorum or service disruption occurred is unnecessary and unsupported.""
+}"
+apache,10,extractive,"[id=47421] SourceFile=Apache_full.log Time=Thu Feb 16 00:54:18 2006 Level=error [client 213.39.178.230] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[id=47422] SourceFile=Apache_full.log Time=Thu Feb 16 00:54:19 2006 Level=error [client 213.39.178.230] File does not exist: /var/www/html/blog
+[id=47423] SourceFile=Apache_full.log Time=Thu Feb 16 00:54:19 2006 Level=error [client 213.39.178.230] File does not exist: /var/www/html/blog
+[id=47424] SourceFile=Apache_full.log Time=Thu Feb 16 00:54:20 2006 Level=error [client 213.39.178.230] File does not exist: /var/www/html/blog
+[id=47425] SourceFile=Apache_full.log Time=Thu Feb 16 00:54:21 2006 Level=error [client 213.39.178.230] File does not exist: /var/www/html/blog
+[id=47426] SourceFile=Apache_full.log Time=Thu Feb 16 00:54:21 2006 Level=error [client 213.39.178.230] File does not exist: /var/www/html/blog
+[id=47427] SourceFile=Apache_full.log Time=Thu Feb 16 00:54:21 2006 Level=error [client 213.39.178.230] script not found or unable to stat: /var/www/cgi-bin/awstats
+[id=47428] SourceFile=Apache_full.log Time=Thu Feb 16 00:54:21 2006 Level=error [client 213.39.178.230] File does not exist: /var/www/html/blog
+[id=47429] SourceFile=Apache_full.log Time=Thu Feb 16 00:54:22 2006 Level=error [client 213.39.178.230] File does not exist: /var/www/html/blog
+[id=47430] SourceFile=Apache_full.log Time=Thu Feb 16 00:54:22 2006 Level=error [client 213.39.178.230] File does not exist: /var/www/html/blog","{""critical_events"": [], ""context_events"": []}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The summary makes no factual claims, since both critical_events and context_events are empty. Nothing in it can be unsupported or contradicted by the logs."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""All ten entries come from a single client (213.39.178.230) requesting nonexistent resources: /var/www/html/blog and the awstats CGI script. These are client-side 'File does not exist' and 'script not found' errors, which are expected rejections of probing requests. There is no evidence of an internal malfunction, resource failure, or abnormal service behavior."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The empty event lists contain no irrelevant, repeated, or unsupported information. This is the correct selection for a chunk with only routine client-side request errors.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The summary makes no factual claims or unsupported assertions. Empty event selections are consistent with the absence of evidenced system faults."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The logs show repeated requests for a nonexistent /blog resource and unavailable awstats script paths. These are missing-resource request errors without evidence of an underlying Apache malfunction or operational disruption."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The empty summary contains no irrelevant, unsupported, or redundant information. Omitting the repeated missing-resource request errors is acceptable.""
+}"
+zookeeper,10,extractive,"[id=26911] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:15:26,210 Level=WARN Location=LearnerHandler-/10.10.34.11:52429:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.11:52429 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.11:52429 ********
+[id=26912] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:15:26,211 Level=WARN Location=LearnerHandler-/10.10.34.11:52428:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.11:52428 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.11:52428 ********
+[id=26913] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:15:26,213 Level=ERROR Location=LearnerHandler-/10.10.34.11:52431:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.11:52431 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open
+[id=26914] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:15:26,213 Level=WARN Location=LearnerHandler-/10.10.34.11:52431:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.11:52431 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.11:52431 ********
+[id=26915] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:15:26,221 Level=ERROR Location=LearnerHandler-/10.10.34.11:52434:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.11:52434 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open
+[id=26916] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:15:26,222 Level=WARN Location=LearnerHandler-/10.10.34.11:52434:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.11:52434 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.11:52434 ********
+[id=26917] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:15:26,298 Level=ERROR Location=LearnerHandler-/10.10.34.12:59151:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.12:59151 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open
+[id=26918] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:15:26,299 Level=WARN Location=LearnerHandler-/10.10.34.12:59151:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.12:59151 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.12:59151 ********
+[id=26919] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:15:26,300 Level=ERROR Location=LearnerHandler-/10.10.34.12:59154:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.12:59154 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open
+[id=26920] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:15:26,301 Level=WARN Location=LearnerHandler-/10.10.34.12:59154:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.12:59154 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.12:59154 ********","{""critical_events"": [""[id=26913] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:15:26,213 Level=ERROR Location=LearnerHandler-/10.10.34.11:52431:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.11:52431 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open""], ""context_events"": []}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The single selected critical event is a verbatim copy of log line id=26913 (ERROR, LearnerHandler, 'Unexpected exception causing shutdown while sock still open'). It exists in the chunk and is not altered or misinterpreted. The summary makes no other claims."",
+  ""fault_completeness"": ""some"",
+  ""fault_completeness_reason"": ""The chunk has five distinct ERROR events where a LearnerHandler thread shut down abnormally with an unexpected exception while its socket was still open: 26913 (10.10.34.11:52431), 26915 (10.10.34.11:52434), 26917 (10.10.34.12:59151), and 26919 (10.10.34.12:59154). Each is followed by a GOODBYE line, so these are separate failed learner connections, not duplicate reports. The summary covers only 26913 and omits the other three (26915, 26917, 26919). That is only one of four distinct faults, and the GOODBYE-only lines (26911, 26912) are routine and not counted as faults."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary has one relevant, non-repeated critical event and an empty context list. It has no irrelevant or redundant content.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The selected event exactly matches log id=26913, which reports an unexpected exception causing LearnerHandler shutdown while the socket remained open."",
+  ""fault_completeness"": ""some"",
+  ""fault_completeness_reason"": ""The logs report unexpected exception-induced LearnerHandler shutdowns on four distinct connections: 10.10.34.11:52431, 10.10.34.11:52434, 10.10.34.12:59151, and 10.10.34.12:59154. The summary covers only the first and omits the other three."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The selected event provides relevant, supported fault information without unnecessary or repeated content. The empty context_events field adds no redundancy.""
+}"
+linux,10,abstractive,"[id=13711] SourceFile=Linux_full.log Month=Nov Day=25 Time=10:58:54 Host=combo Component=sshd(pam_unix) PID=14187 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=59-106-15-121.r-bl100.sakura.ne.jp  user=root
+[id=13712] SourceFile=Linux_full.log Month=Nov Day=25 Time=10:58:54 Host=combo Component=sshd(pam_unix) PID=14191 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=59-106-15-121.r-bl100.sakura.ne.jp  user=root
+[id=13713] SourceFile=Linux_full.log Month=Nov Day=25 Time=10:58:54 Host=combo Component=sshd(pam_unix) PID=14188 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=59-106-15-121.r-bl100.sakura.ne.jp  user=root
+[id=13714] SourceFile=Linux_full.log Month=Nov Day=25 Time=10:58:54 Host=combo Component=sshd(pam_unix) PID=14189 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=59-106-15-121.r-bl100.sakura.ne.jp  user=root
+[id=13715] SourceFile=Linux_full.log Month=Nov Day=25 Time=10:58:54 Host=combo Component=sshd(pam_unix) PID=14190 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=59-106-15-121.r-bl100.sakura.ne.jp  user=root
+[id=13716] SourceFile=Linux_full.log Month=Nov Day=25 Time=10:58:54 Host=combo Component=sshd(pam_unix) PID=14195 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=59-106-15-121.r-bl100.sakura.ne.jp  user=root
+[id=13717] SourceFile=Linux_full.log Month=Nov Day=25 Time=10:58:54 Host=combo Component=sshd(pam_unix) PID=14194 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=59-106-15-121.r-bl100.sakura.ne.jp  user=root
+[id=13718] SourceFile=Linux_full.log Month=Nov Day=25 Time=10:58:54 Host=combo Component=sshd(pam_unix) PID=14192 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=59-106-15-121.r-bl100.sakura.ne.jp  user=root
+[id=13719] SourceFile=Linux_full.log Month=Nov Day=25 Time=10:58:54 Host=combo Component=sshd(pam_unix) PID=14186 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=59-106-15-121.r-bl100.sakura.ne.jp  user=root
+[id=13720] SourceFile=Linux_full.log Month=Nov Day=25 Time=11:20:26 Host=combo Component=kernel Out of Memory: Killed process 14264 (python).","{""summary"": ""The fault: Memory exhaustion caused the kernel to kill a Python process; no further consequence is shown. For background, no other qualifying events appear in this excerpt.""}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The log at id=13720 shows the kernel reporting 'Out of Memory: Killed process 14264 (python)', which supports the claim that memory exhaustion led the kernel to kill a Python process. The statement that no further consequence is shown is true, since the chunk ends there. The claim that no other qualifying events appear is also consistent with the logs, because the remaining entries are only authentication failures, which are not system faults."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The only distinct fault in the chunk is the out-of-memory kill of process 14264 (python), and the summary covers it. The nine sshd authentication failures from one remote host are access rejections, not system malfunctions, so omitting them is not penalized."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is short and has no repetition. It states the one real fault and notes that nothing else qualifies, which is accurate and useful context.""
+}","{
+  ""faithfulness"": ""partly"",
+  ""faithfulness_reason"": ""The kernel's out-of-memory termination of Python process 14264 is correctly reported, and no further consequence is logged. However, the claim that no other qualifying events appear overlooks nine SSH authentication failures involving root from the same remote host."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The only identifiable system fault is memory exhaustion causing the kernel to kill Python process 14264. This fault is correctly covered. The SSH authentication failures are not system faults."",
+  ""conciseness"": ""partly"",
+  ""conciseness_reason"": ""The memory-exhaustion description is useful, accurate, and nonredundant. However, the statement that no other qualifying events appear is misleading because repeated SSH authentication failures provide meaningful security-related context.""
+}"
+linux,10,abstractive,"[id=2851] SourceFile=Linux_full.log Month=Jul Day=27 Time=14:42:06 Host=combo Component=kernel 3c59x: Donald Becker and others. www.scyld.com/network/vortex.html
+[id=2852] SourceFile=Linux_full.log Month=Jul Day=27 Time=14:42:07 Host=combo Component=kernel ip_tables: (C) 2000-2002 Netfilter core team
+[id=2853] SourceFile=Linux_full.log Month=Jul Day=27 Time=14:42:07 Host=combo Component=kernel PCI: Found IRQ 5 for device 0000:01:0c.0
+[id=2854] SourceFile=Linux_full.log Month=Jul Day=27 Time=14:42:07 Host=combo Component=kernel 3c59x: Donald Becker and others. www.scyld.com/network/vortex.html
+[id=2855] SourceFile=Linux_full.log Month=Jul Day=27 Time=14:42:08 Host=combo Component=kernel ip_tables: (C) 2000-2002 Netfilter core team
+[id=2856] SourceFile=Linux_full.log Month=Jul Day=27 Time=14:42:08 Host=combo Component=kernel process `syslogd' is using obsolete setsockopt SO_BSDCOMPAT
+[id=2857] SourceFile=Linux_full.log Month=Jul Day=27 Time=14:42:08 Host=combo Component=kernel Bluetooth: Core ver 2.4
+[id=2858] SourceFile=Linux_full.log Month=Jul Day=27 Time=14:42:09 Host=combo Component=kernel NET: Registered protocol family 31
+[id=2859] SourceFile=Linux_full.log Month=Jul Day=27 Time=14:42:09 Host=combo Component=kernel Bluetooth: HCI device and connection manager initialized
+[id=2860] SourceFile=Linux_full.log Month=Jul Day=27 Time=14:42:09 Host=combo Component=kernel Bluetooth: HCI socket layer initialized","{""summary"": ""Everything looks normal. For background, the kernel initialized the Bluetooth stack and its socket layer.""}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The logs show only routine kernel messages. The claim that everything looks normal is supported. The claim that the kernel initialized the Bluetooth stack and its socket layer matches ids 2857-2860 (Core ver 2.4, protocol family registered, HCI manager and socket layer initialized)."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The chunk contains only driver banners (3c59x, ip_tables), a PCI IRQ assignment, Bluetooth initialization, and an obsolete setsockopt SO_BSDCOMPAT notice for syslogd. The deprecation notice is a harmless diagnostic, not a failure or malfunction."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is short and accurate, with no repeated or irrelevant content. The Bluetooth initialization note is brief, supported context, and omitting other routine events is not penalized.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The logs show routine kernel initialization, including Bluetooth core, HCI manager, and socket layer initialization. The obsolete SO_BSDCOMPAT warning does not establish a malfunction, so the normal-operation characterization is supported."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""No identifiable operational failures or disruptions occur. PCI IRQ detection, protocol registration, and Bluetooth initialization are routine, while the syslogd obsolete setsockopt warning does not demonstrate an actual failure."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary briefly and accurately describes normal system behavior and Bluetooth initialization without irrelevant details or unnecessary repetition.""
+}"
+zookeeper,10,hybrid,"[id=59301] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:28:11,093 Level=WARN Location=RecvWorker:188978561024:QuorumCnxManager$RecvWorker@765 Thread=RecvWorker:188978561024 Component=QuorumCnxManager$RecvWorker SourceLine=765 Interrupting SendWorker
+[id=59302] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:28:11,094 Level=WARN Location=SendWorker:188978561024:QuorumCnxManager$SendWorker@679 Thread=SendWorker:188978561024 Component=QuorumCnxManager$SendWorker SourceLine=679 Interrupted while waiting for message on queue
+[id=59303] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:28:11,094 Level=WARN Location=SendWorker:188978561024:QuorumCnxManager$SendWorker@688 Thread=SendWorker:188978561024 Component=QuorumCnxManager$SendWorker SourceLine=688 Send worker leaving thread
+[id=59304] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:28:11,094 Level=INFO Location=/10.10.34.13:3888:QuorumCnxManager$Listener@493 Thread=/10.10.34.13:3888 Component=QuorumCnxManager$Listener SourceLine=493 Received connection request /10.10.34.11:47953
+[id=59305] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:28:11,095 Level=INFO Location=/10.10.34.13:3888:QuorumCnxManager$Listener@493 Thread=/10.10.34.13:3888 Component=QuorumCnxManager$Listener SourceLine=493 Received connection request /10.10.34.11:47954
+[id=59306] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:28:11,095 Level=WARN Location=RecvWorker:188978561024:QuorumCnxManager$RecvWorker@762 Thread=RecvWorker:188978561024 Component=QuorumCnxManager$RecvWorker SourceLine=762 Connection broken for id 188978561024, my id = 3, error = 
+[id=59307] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:28:11,095 Level=WARN Location=RecvWorker:188978561024:QuorumCnxManager$RecvWorker@765 Thread=RecvWorker:188978561024 Component=QuorumCnxManager$RecvWorker SourceLine=765 Interrupting SendWorker
+[id=59308] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:28:11,095 Level=WARN Location=SendWorker:188978561024:QuorumCnxManager$SendWorker@679 Thread=SendWorker:188978561024 Component=QuorumCnxManager$SendWorker SourceLine=679 Interrupted while waiting for message on queue
+[id=59309] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:28:11,096 Level=WARN Location=RecvWorker:188978561024:QuorumCnxManager$RecvWorker@762 Thread=RecvWorker:188978561024 Component=QuorumCnxManager$RecvWorker SourceLine=762 Connection broken for id 188978561024, my id = 3, error = 
+[id=59310] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:28:11,096 Level=INFO Location=/10.10.34.13:3888:QuorumCnxManager$Listener@493 Thread=/10.10.34.13:3888 Component=QuorumCnxManager$Listener SourceLine=493 Received connection request /10.10.34.11:47956","{""critical_events"": [], ""context_events"": [""[id=59304] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:28:11,094 Level=INFO Location=/10.10.34.13:3888:QuorumCnxManager$Listener@493 Thread=/10.10.34.13:3888 Component=QuorumCnxManager$Listener SourceLine=493 Received connection request /10.10.34.11:47953"", ""[id=59306] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:28:11,095 Level=WARN Location=RecvWorker:188978561024:QuorumCnxManager$RecvWorker@762 Thread=RecvWorker:188978561024 Component=QuorumCnxManager$RecvWorker SourceLine=762 Connection broken for id 188978561024, my id = 3, error = ""], ""analysis"": null, ""interpretation"": ""Everything looks normal.""}","{
+“faithfulness”: “yes”,
+“faithfulness_reason”: “The two context events are verbatim log lines (id=59304 connection request, id=59306 broken connection for id 188978561024). The empty critical_events and the interpretation ‘Everything looks normal’ are consistent with the logs: the worker thread shutdowns and connection-broken warnings are transient connection churn, and new connection requests from 10.10.34.11 are accepted. No quorum failure, service unavailability, or abnormal termination is evidenced.”,
+“fault_completeness”: “no faults present”,
+“fault_completeness_reason”: “The chunk shows only repeated connection-broken warnings, SendWorker interruptions and exits, and incoming connection requests. These are expected transient connection behavior under the system description, with no evidenced failed operation, quorum or sync failure, or service disruption, so there are no distinct faults to cover.”,
+“conciseness”: “yes”,
+“conciseness_reason”: “The summary is short and non-redundant: two representative context events (a connection request and a broken connection) plus a one-line interpretation. Critical_events is correctly empty and the analysis field is null, with no irrelevant or repeated information.”
+}","{
+  ""faithfulness"": ""partly"",
+  ""faithfulness_reason"": ""The selected context events are directly supported by logs 59304 and 59306. However, the interpretation 'Everything looks normal' is overly broad because the logs show repeated broken quorum connections and interrupted SendWorker threads, even though these do not establish a service malfunction."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The logs show repeated connection interruptions for peer 188978561024, SendWorker interruptions and termination, and incoming connection requests. These events do not provide clear evidence of quorum failure, unsuccessful internal operations, or service unavailability. No distinct system fault is established."",
+  ""conciseness"": ""partly"",
+  ""conciseness_reason"": ""The selected connection request and broken connection provide useful, nonredundant context. However, 'Everything looks normal' is an oversimplified interpretation that adds little useful information and does not adequately reflect the observed connection disruptions.""
+}"
+zookeeper,10,hybrid,"[id=22341] SourceFile=Zookeeper_full.log Date=8/20/2015 Time=17:12:26,226 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FollowerRequestProcessor@105 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FollowerRequestProcessor SourceLine=105 Shutting down
+[id=22342] SourceFile=Zookeeper_full.log Date=8/20/2015 Time=17:12:26,227 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:CommitProcessor@181 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=CommitProcessor SourceLine=181 Shutting down
+[id=22343] SourceFile=Zookeeper_full.log Date=8/20/2015 Time=17:12:26,227 Level=INFO Location=FollowerRequestProcessor:1:FollowerRequestProcessor@95 Thread=FollowerRequestProcessor:1 Component=FollowerRequestProcessor SourceLine=95 FollowerRequestProcessor exited loop!
+[id=22344] SourceFile=Zookeeper_full.log Date=8/20/2015 Time=17:12:26,227 Level=INFO Location=CommitProcessor:1:CommitProcessor@150 Thread=CommitProcessor:1 Component=CommitProcessor SourceLine=150 CommitProcessor exited loop!
+[id=22345] SourceFile=Zookeeper_full.log Date=8/20/2015 Time=17:12:26,227 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FinalRequestProcessor@415 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FinalRequestProcessor SourceLine=415 shutdown of request processor complete
+[id=22346] SourceFile=Zookeeper_full.log Date=8/20/2015 Time=17:12:26,229 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:SyncRequestProcessor@175 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=SyncRequestProcessor SourceLine=175 Shutting down
+[id=22347] SourceFile=Zookeeper_full.log Date=8/20/2015 Time=17:12:26,229 Level=INFO Location=SyncThread:1:SyncRequestProcessor@155 Thread=SyncThread:1 Component=SyncRequestProcessor SourceLine=155 SyncRequestProcessor exited!
+[id=22348] SourceFile=Zookeeper_full.log Date=8/20/2015 Time=17:12:26,229 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumPeer@670 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumPeer SourceLine=670 LOOKING
+[id=22349] SourceFile=Zookeeper_full.log Date=8/20/2015 Time=17:12:26,234 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FileSnap@83 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FileSnap SourceLine=83 Reading snapshot /var/lib/zookeeper/version-2/snapshot.a0000009a
+[id=22350] SourceFile=Zookeeper_full.log Date=8/20/2015 Time=17:12:26,256 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@740 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FastLeaderElection SourceLine=740 New election. My id =  1, proposed zxid=0xb0000007b","{""critical_events"": [], ""context_events"": [""[id=22348] SourceFile=Zookeeper_full.log Date=8/20/2015 Time=17:12:26,229 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumPeer@670 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumPeer SourceLine=670 LOOKING"", ""[id=22349] SourceFile=Zookeeper_full.log Date=8/20/2015 Time=17:12:26,234 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FileSnap@83 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FileSnap SourceLine=83 Reading snapshot /var/lib/zookeeper/version-2/snapshot.a0000009a"", ""[id=22350] SourceFile=Zookeeper_full.log Date=8/20/2015 Time=17:12:26,256 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@740 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FastLeaderElection SourceLine=740 New election. My id =  1, proposed zxid=0xb0000007b""], ""analysis"": null, ""interpretation"": ""Everything looks normal.""}","{
+“faithfulness”: “partly”,
+“faithfulness_reason”: “The three context events are verbatim log lines (LOOKING, reading snapshot, new election) and are fully supported. The interpretation ‘Everything looks normal’ is only partly supported. The logs show the follower’s request processors (FollowerRequestProcessor, CommitProcessor, SyncRequestProcessor) shutting down cleanly and the peer moving to LOOKING and starting a new election. That sequence means the node lost its leader or follower role, which is a notable state change and not simply routine. No errors or failures appear, so the logs do not contradict a ‘no fault’ reading, but ‘everything looks normal’ glosses over the election trigger and is a weakly supported claim.”,
+“fault_completeness”: “no faults present”,
+“fault_completeness_reason”: “The chunk shows orderly shutdowns (‘Shutting down’, ‘exited loop!’, ‘shutdown of request processor complete’, ‘SyncRequestProcessor exited!’), followed by LOOKING, a snapshot read, and a new election. There is no evidence of a failed operation, quorum or synchronization failure, data inconsistency, or abnormal termination. The election is expected distributed-system behavior, so no faults are present and the empty critical_events is correct.”,
+“conciseness”: “yes”,
+“conciseness_reason”: “The summary has no critical events and three relevant context events that describe the transition into election. They are not repeated, and the one-line interpretation adds no redundant or irrelevant content.”
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""All three selected context events are exact excerpts from the original logs (22348–22350). The interpretation that everything looks normal is consistent with the processor shutdowns, transition to LOOKING, snapshot reading, and initiation of a new leader election, with no explicit evidence of malfunction."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The logs show request processors shutting down and exiting, followed by a transition to LOOKING, snapshot reading, and a new leader election. These events do not independently establish a failed operation, quorum failure, or service malfunction. The empty critical_events list is appropriate."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The three selected context events capture meaningful election and recovery-related activity without duplication. The brief normal-operation interpretation is relevant, and the empty critical_events list adds no unnecessary information.""
+}"
+zookeeper,10,extractive,"[id=18221] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=14:16:49,967 Level=INFO Location=CommitProcessor:1:ZooKeeperServer@595 Thread=CommitProcessor:1 Component=ZooKeeperServer SourceLine=595 Established session 0x14ed93111f2006f with negotiated timeout 10000 for client /10.10.34.11:47780
+[id=18222] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=14:26:08,622 Level=WARN Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@349 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=NIOServerCnxn SourceLine=349 caught end of stream exception
+[id=18223] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=14:26:08,622 Level=INFO Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=NIOServerCnxn SourceLine=1001 Closed socket connection for client /10.10.34.11:47778 which had sessionid 0x14ed93111f2006d
+[id=18224] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=14:26:08,623 Level=WARN Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@349 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=NIOServerCnxn SourceLine=349 caught end of stream exception
+[id=18225] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=14:26:08,623 Level=INFO Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=NIOServerCnxn SourceLine=1001 Closed socket connection for client /10.10.34.11:47779 which had sessionid 0x14ed93111f2006e
+[id=18226] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=14:26:08,623 Level=WARN Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@349 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=NIOServerCnxn SourceLine=349 caught end of stream exception
+[id=18227] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=14:26:08,624 Level=INFO Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=NIOServerCnxn SourceLine=1001 Closed socket connection for client /10.10.34.11:47780 which had sessionid 0x14ed93111f2006f
+[id=18228] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=14:28:50,953 Level=INFO Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=NIOServerCnxnFactory SourceLine=197 Accepted socket connection from /10.10.34.11:48508
+[id=18229] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=14:28:50,954 Level=WARN Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@793 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=ZooKeeperServer SourceLine=793 Connection request from old client /10.10.34.11:48508; will be dropped if server is in r-o mode
+[id=18230] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=14:28:50,954 Level=INFO Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@839 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=ZooKeeperServer SourceLine=839 Client attempting to establish new session at /10.10.34.11:48508","{""critical_events"": [], ""context_events"": [""[id=18222] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=14:26:08,622 Level=WARN Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@349 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=NIOServerCnxn SourceLine=349 caught end of stream exception"", ""[id=18227] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=14:26:08,624 Level=INFO Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=NIOServerCnxn SourceLine=1001 Closed socket connection for client /10.10.34.11:47780 which had sessionid 0x14ed93111f2006f"", ""[id=18228] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=14:28:50,953 Level=INFO Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=NIOServerCnxnFactory SourceLine=197 Accepted socket connection from /10.10.34.11:48508""]}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""All three context events are verbatim log lines (ids 18222, 18227, 18228). The empty critical_events list makes no unsupported claims, and nothing in the summary is invented or contradicted by the logs."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The chunk shows routine behavior. The end-of-stream warnings are followed by normal socket closures for sessions 0x14ed93111f2006d/e/f, which is typical client disconnection. The old-client warning (id 18229) only says the connection would be dropped if the server were in r-o mode, and a new session is then established normally. No failed operation, quorum problem, or service disruption appears."",
+  ""conciseness"": ""partly"",
+  ""conciseness_reason"": ""The empty critical_events list is correct. The context events are relevant but incomplete and slightly redundant: the end-of-stream warning (18222) and the socket closure (18227) come from different client connections (47778 and 47780), and the other two disconnect pairs are omitted. The summary is short, but this selection adds little beyond a generic disconnect/reconnect picture.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""All three selected context events are exact extracts from the original logs: an end-of-stream exception (18222), a client socket closure (18227), and an accepted socket connection (18228). The empty critical_events selection is consistent with the absence of confirmed system faults."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The logs show three end-of-stream exceptions followed by client socket closures, a subsequent accepted connection, and a new session attempt. The warning about potentially dropping an old client connection in read-only mode is conditional, with no confirmed rejection or service disruption. No internal malfunction or failed operation is established."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The three selected events provide useful, nonredundant context about connection interruption, socket closure, and subsequent connection acceptance. Although the extractive format retains verbose log metadata, the selected events are relevant and do not unnecessarily repeat the same occurrence.""
+}"
+linux,10,hybrid,"[id=23171] SourceFile=Linux_full.log Month=Feb Day=10 Time=15:07:34 Host=combo Component=ftpd PID=4582 connection from 208.34.235.251 (mail.nrms.org) at Fri Feb 10 15:07:34 2006 
+[id=23172] SourceFile=Linux_full.log Month=Feb Day=10 Time=15:07:34 Host=combo Component=ftpd PID=4596 connection from 208.34.235.251 (mail.nrms.org) at Fri Feb 10 15:07:34 2006 
+[id=23173] SourceFile=Linux_full.log Month=Feb Day=10 Time=15:07:35 Host=combo Component=ftpd PID=4598 connection from 208.34.235.251 (mail.nrms.org) at Fri Feb 10 15:07:35 2006 
+[id=23174] SourceFile=Linux_full.log Month=Feb Day=10 Time=15:07:35 Host=combo Component=ftpd PID=4599 connection from 208.34.235.251 (mail.nrms.org) at Fri Feb 10 15:07:35 2006 
+[id=23175] SourceFile=Linux_full.log Month=Feb Day=10 Time=21:52:19 Host=combo Component=xinetd PID=4600 warning: can't get client address: Connection reset by peer
+[id=23176] SourceFile=Linux_full.log Month=Feb Day=10 Time=21:52:19 Host=combo Component=ftpd PID=4600 getpeername (ftpd): Transport endpoint is not connected
+[id=23177] SourceFile=Linux_full.log Month=Feb Day=10 Time=21:55:00 Host=combo Component=ftpd PID=4601 connection from 85.219.160.32 (host-32-160.users.bzimage.us) at Fri Feb 10 21:55:00 2006 
+[id=23178] SourceFile=Linux_full.log Month=Feb Day=10 Time=21:55:11 Host=combo Component=ftpd PID=4602 connection from 85.219.160.32 (host-32-160.users.bzimage.us) at Fri Feb 10 21:55:11 2006 
+[id=23179] SourceFile=Linux_full.log Month=Feb Day=10 Time=21:55:19 Host=combo Component=ftpd PID=4603 connection from 85.219.160.32 (host-32-160.users.bzimage.us) at Fri Feb 10 21:55:19 2006 
+[id=23180] SourceFile=Linux_full.log Month=Feb Day=10 Time=21:55:24 Host=combo Component=ftpd PID=4604 connection from 85.219.160.32 (host-32-160.users.bzimage.us) at Fri Feb 10 21:55:24 2006","{""critical_events"": [], ""context_events"": [], ""analysis"": null, ""interpretation"": ""Everything looks normal.""}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The summary makes only one claim: that everything looks normal, with no critical or context events. The logs contain only ftpd connection records from two remote hosts and one xinetd warning about a reset connection. None of these shows a system or service malfunction, so the claim is supported."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The xinetd 'can't get client address: Connection reset by peer' warning and the ftpd 'getpeername: Transport endpoint is not connected' message (PID 4600) come from a client dropping the connection early. Per the system description, client disconnections are not faults by themselves. The repeated ftpd connection entries are routine, with no failed operation or disrupted service. No distinct faults are present."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is minimal and correctly leaves the critical and context event lists empty. It contains no irrelevant, unsupported, or repeated information.""
+}","{
+  ""faithfulness"": ""partly"",
+  ""faithfulness_reason"": ""The logs mainly show routine FTP connections, but xinetd reports a connection reset by peer and ftpd reports a disconnected transport endpoint. Therefore, the claim that everything looks normal overlooks these connection-related anomalies."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The connection reset and getpeername error indicate a disconnected client connection, without clear evidence of an internal service malfunction or operational disruption. The remaining entries are routine FTP connections."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is brief and nonredundant. Its general normal-operation interpretation is useful, although it omits the connection-related anomalies.""
+}"
+zookeeper,10,hybrid,"[id=26661] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:13:36,296 Level=ERROR Location=LearnerHandler-/10.10.34.13:57147:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.13:57147 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open
+[id=26662] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:13:36,296 Level=WARN Location=LearnerHandler-/10.10.34.13:57147:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.13:57147 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.13:57147 ********
+[id=26663] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:13:36,298 Level=ERROR Location=LearnerHandler-/10.10.34.13:57148:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.13:57148 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open
+[id=26664] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:13:36,298 Level=WARN Location=LearnerHandler-/10.10.34.13:57148:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.13:57148 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.13:57148 ********
+[id=26665] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:13:36,304 Level=ERROR Location=LearnerHandler-/10.10.34.13:57151:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.13:57151 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open
+[id=26666] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:13:36,305 Level=WARN Location=LearnerHandler-/10.10.34.13:57151:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.13:57151 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.13:57151 ********
+[id=26667] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:13:36,311 Level=ERROR Location=LearnerHandler-/10.10.34.13:57154:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.13:57154 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open
+[id=26668] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:13:36,312 Level=WARN Location=LearnerHandler-/10.10.34.13:57154:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.13:57154 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.13:57154 ********
+[id=26669] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:13:46,127 Level=ERROR Location=LearnerHandler-/10.10.34.11:52308:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.11:52308 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open
+[id=26670] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:13:46,127 Level=ERROR Location=LearnerHandler-/10.10.34.11:52309:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.11:52309 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open","{""critical_events"": [""[id=26661] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:13:36,296 Level=ERROR Location=LearnerHandler-/10.10.34.13:57147:LearnerHandler@562 Thread=LearnerHandler-/10.10.34.13:57147 Component=LearnerHandler SourceLine=562 Unexpected exception causing shutdown while sock still open""], ""context_events"": [""[id=26662] SourceFile=Zookeeper_full.log Date=7/29/2015 Time=19:13:36,296 Level=WARN Location=LearnerHandler-/10.10.34.13:57147:LearnerHandler@575 Thread=LearnerHandler-/10.10.34.13:57147 Component=LearnerHandler SourceLine=575 ******* GOODBYE /10.10.34.13:57147 ********""], ""analysis"": {""fault_category"": ""unknown"", ""affected_components"": [""LearnerHandler-/10.10.34.13:57147""], ""recovery_state"": ""unknown"", ""likely_cause"": ""undetermined"", ""evidence_ids"": [""26661""]}, ""interpretation"": ""An unexpected exception terminated a learner handler. The logs do not establish the cause or whether it recovered.""}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""Every claim is supported by the logs. Event 26661 is an ERROR on LearnerHandler-/10.10.34.13:57147 reporting an unexpected exception causing shutdown while the socket was still open, and 26662 is its GOODBYE message. The 'unknown' fault category, recovery state and cause match the logs, which give no cause or recovery information. The interpretation is also accurate."",
+  ""fault_completeness"": ""some"",
+  ""fault_completeness_reason"": ""The logs show nine separate learner handler shutdowns from unexpected exceptions, on ports 57147, 57148, 57151 and 57154 from 10.10.34.13 and ports 52308 and 52309 from 10.10.34.11. Each is a distinct failed handler session on a different thread and connection. The summary covers only the first (57147). It omits the others, including the 10.10.34.11 handlers, and does not mention that the failures recurred across multiple learners and hosts."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is short and has no irrelevant content. The context event (GOODBYE) and the interpretation add useful information without repeating each other. The only repetition is the critical event ID appearing in the evidence field, which is normal structure.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The selected events and interpretation are supported by logs 26661 and 26662, which show an unexpected exception causing a LearnerHandler shutdown followed by a GOODBYE message. The affected component is correctly identified, and the cause and recovery state are appropriately left unknown."",
+  ""fault_completeness"": ""some"",
+  ""fault_completeness_reason"": ""The logs show six unexpected LearnerHandler shutdowns across distinct connections: four involving 10.10.34.13 (26661, 26663, 26665, 26667) and two involving 10.10.34.11 (26669, 26670). The summary covers only the shutdown associated with 26661 and omits the other five occurrences."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The selected critical event, corresponding GOODBYE message, structured analysis, and brief interpretation provide relevant information. The interpretation reinforces the selected evidence without unnecessary repetition, and no irrelevant or unsupported details are introduced.""
+}"
+apache,10,abstractive,"[id=40121] SourceFile=Apache_full.log Time=Tue Jan 24 08:23:05 2006 Level=error [client 202.141.25.89] File does not exist: /var/www/html/awstats/awstats.pl
+[id=40122] SourceFile=Apache_full.log Time=Tue Jan 24 08:23:05 2006 Level=error [client 202.141.25.89] File does not exist: /var/www/html/awstats/awstats.pl
+[id=40123] SourceFile=Apache_full.log Time=Tue Jan 24 08:23:05 2006 Level=error [client 202.141.25.89] File does not exist: /var/www/html/awstats/awstats.pl
+[id=40124] SourceFile=Apache_full.log Time=Tue Jan 24 08:23:06 2006 Level=error [client 202.141.25.89] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[id=40125] SourceFile=Apache_full.log Time=Tue Jan 24 08:23:06 2006 Level=error [client 202.141.25.89] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[id=40126] SourceFile=Apache_full.log Time=Tue Jan 24 08:23:09 2006 Level=error [client 202.141.25.89] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[id=40127] SourceFile=Apache_full.log Time=Tue Jan 24 08:23:09 2006 Level=error [client 202.141.25.89] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[id=40128] SourceFile=Apache_full.log Time=Tue Jan 24 08:23:09 2006 Level=error [client 202.141.25.89] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[id=40129] SourceFile=Apache_full.log Time=Tue Jan 24 08:23:09 2006 Level=error [client 202.141.25.89] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[id=40130] SourceFile=Apache_full.log Time=Tue Jan 24 08:23:12 2006 Level=error [client 202.141.25.89] script not found or unable to stat: /var/www/cgi-bin/awstats","{""summary"": ""Everything looks normal. For background, the requests reflect missing AWStats paths, not a server failure.""}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The logs show only repeated 'File does not exist' and 'script not found or unable to stat' errors for awstats.pl from a single client (202.141.25.89). These are requests for missing AWStats paths, not an internal server failure. Both the 'missing AWStats paths' and 'not a server failure' claims are supported. 'Everything looks normal' is a reasonable characterization of server health, since no internal malfunction is evidenced."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""All events are client-triggered requests for nonexistent resources (likely a probe/scan for awstats.pl). Per the system description, these are rejected requests and not evidence of an unsuccessful internal operation, malfunction, or abnormal service behavior. No distinct faults are present."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is brief and gives a correct normal-operation assessment with a short relevant clarification. It contains no irrelevant or repeated information.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The logs show repeated requests for missing AWStats files and scripts, without evidence of an internal server malfunction. The summary accurately characterizes these as missing paths rather than a server failure."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""All entries concern unavailable AWStats paths requested by the same client. These are unsuccessful resource requests, not evidenced internal server faults."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary briefly conveys the repeated missing AWStats paths and their non-fault nature without irrelevant details or redundancy.""
+}"
+linux,10,extractive,"[id=4201] SourceFile=Linux_full.log Month=Sep Day=4 Time=4:11:50 Host=combo Component=su(pam_unix) PID=23844 session opened for user news by (uid=0)
+[id=4202] SourceFile=Linux_full.log Month=Sep Day=4 Time=4:11:50 Host=combo Component=su(pam_unix) PID=23844 session closed for user news
+[id=4203] SourceFile=Linux_full.log Month=Sep Day=4 Time=10:25:21 Host=combo Component=sshd(pam_unix) PID=27536 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=210.127.68.18  user=webmaster
+[id=4204] SourceFile=Linux_full.log Month=Sep Day=4 Time=10:25:21 Host=combo Component=sshd(pam_unix) PID=27541 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=210.127.68.18  user=webmaster
+[id=4205] SourceFile=Linux_full.log Month=Sep Day=4 Time=10:25:21 Host=combo Component=sshd(pam_unix) PID=27532 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=210.127.68.18  user=webmaster
+[id=4206] SourceFile=Linux_full.log Month=Sep Day=4 Time=10:25:21 Host=combo Component=sshd(pam_unix) PID=27534 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=210.127.68.18  user=webmaster
+[id=4207] SourceFile=Linux_full.log Month=Sep Day=4 Time=10:25:21 Host=combo Component=sshd(pam_unix) PID=27533 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=210.127.68.18  user=webmaster
+[id=4208] SourceFile=Linux_full.log Month=Sep Day=4 Time=10:25:21 Host=combo Component=sshd(pam_unix) PID=27537 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=210.127.68.18  user=webmaster
+[id=4209] SourceFile=Linux_full.log Month=Sep Day=4 Time=10:25:21 Host=combo Component=sshd(pam_unix) PID=27538 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=210.127.68.18  user=webmaster
+[id=4210] SourceFile=Linux_full.log Month=Sep Day=4 Time=10:25:21 Host=combo Component=sshd(pam_unix) PID=27540 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=210.127.68.18  user=webmaster","{""critical_events"": [], ""context_events"": [""[id=4201] SourceFile=Linux_full.log Month=Sep Day=4 Time=4:11:50 Host=combo Component=su(pam_unix) PID=23844 session opened for user news by (uid=0)"", ""[id=4202] SourceFile=Linux_full.log Month=Sep Day=4 Time=4:11:50 Host=combo Component=su(pam_unix) PID=23844 session closed for user news""]}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The summary only copies two source log lines verbatim (ids 4201 and 4202, su session opened and closed for user news). Both are present in the original chunk, and the empty critical_events list makes no unsupported claims."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The chunk has a routine su session open/close and eight sshd pam_unix authentication failures from the same remote host for user webmaster. Per the system description, authentication failures alone are expected rejections, not system faults, and nothing shows a service malfunction or disruption."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The empty critical_events is correct. The context_events contain two brief, relevant, non-repeated lines of normal session activity. No irrelevant or redundant information is included.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""Both selected context events are exact entries from the original logs (4201 and 4202), documenting the opening and closing of a session for user news. The empty critical_events selection is consistent with the absence of identifiable system faults."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The logs contain a normal session opening and closing, followed by eight SSH authentication failures for user webmaster from 210.127.68.18. Authentication failures alone do not establish a system malfunction or operational disruption. No identifiable system faults are present."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The selected events accurately document a session opening and closing, which are distinct lifecycle events. Although the repeated SSH authentication failures are omitted, the selected information is relevant, supported, and nonredundant.""
+}"
+linux,10,abstractive,"[id=8251] SourceFile=Linux_full.log Month=Nov Day=18 Time=11:10:48 Host=combo Component=sshd(pam_unix) PID=10324 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=153.19.130.15  user=root
+[id=8252] SourceFile=Linux_full.log Month=Nov Day=18 Time=11:10:49 Host=combo Component=sshd(pam_unix) PID=10326 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=153.19.130.15  user=root
+[id=8253] SourceFile=Linux_full.log Month=Nov Day=18 Time=11:10:49 Host=combo Component=sshd(pam_unix) PID=10328 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=153.19.130.15  user=root
+[id=8254] SourceFile=Linux_full.log Month=Nov Day=18 Time=14:20:26 Host=combo Component=kernel Out of Memory: Killed process 10096 (httpd).
+[id=8255] SourceFile=Linux_full.log Month=Nov Day=18 Time=14:25:27 Host=combo Component=kernel Out of Memory: Killed process 10209 (httpd).
+[id=8256] SourceFile=Linux_full.log Month=Nov Day=18 Time=14:35:15 Host=combo Component=kernel Out of Memory: Killed process 10646 (httpd).
+[id=8257] SourceFile=Linux_full.log Month=Nov Day=18 Time=14:35:23 Host=combo Component=kernel Out of Memory: Killed process 7273 (httpd).
+[id=8258] SourceFile=Linux_full.log Month=Nov Day=18 Time=14:35:45 Host=combo Component=kernel Out of Memory: Killed process 10666 (httpd).
+[id=8259] SourceFile=Linux_full.log Month=Nov Day=18 Time=14:35:54 Host=combo Component=kernel Out of Memory: Killed process 10667 (httpd).
+[id=8260] SourceFile=Linux_full.log Month=Nov Day=18 Time=14:35:59 Host=combo Component=kernel Out of Memory: Killed process 10094 (httpd).","{""summary"": ""The fault: Memory exhaustion forced the kernel to kill eight httpd processes between 11:10 and 14:35. For background, no other qualifying events are shown.""}","{
+  ""faithfulness"": ""partly"",
+  ""faithfulness_reason"": ""The logs show OOM kills of httpd processes, which supports the memory exhaustion claim. However, the summary says eight processes were killed, but only seven kill events appear (ids 8254-8260). It also says the kills occurred between 11:10 and 14:35, but the kills ran from 14:20:26 to 14:35:59. The 11:10 start time comes from the SSH authentication failures, not the OOM kills. The claim that no other qualifying events are shown is acceptable, since the authentication failures are not system faults."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The only faults in the chunk are the repeated kernel Out of Memory kills of httpd processes (ids 8254-8260), and the summary identifies them as memory exhaustion forcing the kernel to kill httpd processes. The SSH authentication failures (ids 8251-8253) are not faults under the system description, so omitting them is correct."",
+  ""conciseness"": ""partly"",
+  ""conciseness_reason"": ""The summary is short and focused on the fault. The closing background sentence saying no other qualifying events are shown adds no useful information and is filler. The incorrect count and time range also add misleading detail.""
+}","{
+  ""faithfulness"": ""partly"",
+  ""faithfulness_reason"": ""The logs confirm memory exhaustion and kernel termination of httpd processes, but show seven killed processes, not eight. The OOM events occurred between 14:20 and 14:35, not 11:10 and 14:35. The logs also contain three SSH authentication failures, contradicting the claim that no other qualifying events are shown."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""All seven distinct OOM-triggered httpd process terminations are covered by the summary's description of memory exhaustion and forced process kills, despite the incorrect count. The SSH authentication failures are not system faults."",
+  ""conciseness"": ""partly"",
+  ""conciseness_reason"": ""The memory exhaustion description is useful and nonredundant, but the incorrect process count and time range introduce unsupported details. The statement about no other qualifying events is ambiguous and unnecessary.""
+}"
+apache,10,hybrid,"[id=16461] SourceFile=Apache_full.log Time=Sun Nov 20 04:10:45 2005 Level=notice jk2_init() Found child 16849 in scoreboard slot 5
+[id=16462] SourceFile=Apache_full.log Time=Sun Nov 20 04:10:45 2005 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[id=16463] SourceFile=Apache_full.log Time=Sun Nov 20 04:10:45 2005 Level=error mod_jk child workerEnv in error state 3
+[id=16464] SourceFile=Apache_full.log Time=Sun Nov 20 04:10:45 2005 Level=notice jk2_init() Found child 16850 in scoreboard slot 6
+[id=16465] SourceFile=Apache_full.log Time=Sun Nov 20 04:10:45 2005 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[id=16466] SourceFile=Apache_full.log Time=Sun Nov 20 04:10:45 2005 Level=error mod_jk child workerEnv in error state 3
+[id=16467] SourceFile=Apache_full.log Time=Sun Nov 20 04:10:45 2005 Level=notice jk2_init() Found child 16851 in scoreboard slot 7
+[id=16468] SourceFile=Apache_full.log Time=Sun Nov 20 04:10:45 2005 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[id=16469] SourceFile=Apache_full.log Time=Sun Nov 20 04:10:45 2005 Level=error mod_jk child workerEnv in error state 3
+[id=16470] SourceFile=Apache_full.log Time=Sun Nov 20 04:26:38 2005 Level=error [client 62.179.223.39] Directory index forbidden by rule: /var/www/html/","{""critical_events"": [""[id=16463] SourceFile=Apache_full.log Time=Sun Nov 20 04:10:45 2005 Level=error mod_jk child workerEnv in error state 3"", ""[id=16466] SourceFile=Apache_full.log Time=Sun Nov 20 04:10:45 2005 Level=error mod_jk child workerEnv in error state 3"", ""[id=16469] SourceFile=Apache_full.log Time=Sun Nov 20 04:10:45 2005 Level=error mod_jk child workerEnv in error state 3""], ""context_events"": [""[id=16462] SourceFile=Apache_full.log Time=Sun Nov 20 04:10:45 2005 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties""], ""analysis"": {""fault_category"": ""application"", ""affected_components"": [""mod_jk child workerEnv""], ""recovery_state"": ""unknown"", ""likely_cause"": ""undetermined"", ""evidence_ids"": [""16463"", ""16466"", ""16469""]}, ""interpretation"": ""The mod_jk child workerEnv reports an error state, but the logs do not show whether it recovered.""}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""All claims match the logs. The three listed critical events (ids 16463, 16466, 16469) are verbatim 'mod_jk child workerEnv in error state 3' errors, and the context event 16462 is a verbatim workerEnv.init() ok notice. The component, the 'application' category, and the evidence ids are supported. The statements that recovery state and cause are unknown are consistent with the logs, which show no explicit recovery or cause."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The source contains three repeated mod_jk child workerEnv error-state-3 events (16463, 16466, 16469), each following a child init for a different scoreboard slot, so they are distinct occurrences of the same failure type. The summary covers all three. The 'Directory index forbidden by rule' error (16470) is a client-side rejected request, not an internal fault, so omitting it is correct."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The content is relevant and compact. The three error events are separate occurrences in different child processes and are meaningfully listed, and the single context event gives useful init context. The analysis and interpretation add little repetition beyond brief restatement of the uncertainty about recovery. Nothing is irrelevant or unsupported.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The mod_jk child workerEnv error state is explicitly reported in logs 16463, 16466, and 16469. Successful workerEnv initialization is supported by log 16462. The affected component and unknown recovery state are consistent with the evidence, and no unsupported cause is asserted."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The logs show mod_jk child workerEnv entering error state 3 for three child processes, all represented in the summary. The directory index denial in log 16470 is an access restriction, not an evidenced server malfunction."",
+  ""conciseness"": ""partly"",
+  ""conciseness_reason"": ""The summary provides useful fault and initialization context, but repeats the same workerEnv error information across three critical events, structured analysis fields, and the interpretation. The individual occurrences are meaningful, but some explanatory duplication is unnecessary.""
+}"
+apache,10,abstractive,"[id=10001] SourceFile=Apache_full.log Time=Thu Oct 20 18:46:59 2005 Level=error [client 213.219.16.66] File does not exist: /var/www/html/phpmyadmin
+[id=10002] SourceFile=Apache_full.log Time=Thu Oct 20 18:46:59 2005 Level=error [client 213.219.16.66] File does not exist: /var/www/html/phpmyadmin
+[id=10003] SourceFile=Apache_full.log Time=Thu Oct 20 18:46:59 2005 Level=error [client 213.219.16.66] File does not exist: /var/www/html/phpmyadmin
+[id=10004] SourceFile=Apache_full.log Time=Thu Oct 20 18:46:59 2005 Level=error [client 213.219.16.66] File does not exist: /var/www/html/phpmyadmin
+[id=10005] SourceFile=Apache_full.log Time=Thu Oct 20 18:46:59 2005 Level=error [client 213.219.16.66] File does not exist: /var/www/html/phpmyadmin
+[id=10006] SourceFile=Apache_full.log Time=Thu Oct 20 18:46:59 2005 Level=error [client 213.219.16.66] File does not exist: /var/www/html/phpmyadmin
+[id=10007] SourceFile=Apache_full.log Time=Thu Oct 20 18:46:59 2005 Level=notice jk2_init() Found child 9231 in scoreboard slot 8
+[id=10008] SourceFile=Apache_full.log Time=Thu Oct 20 18:47:00 2005 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[id=10009] SourceFile=Apache_full.log Time=Thu Oct 20 18:47:00 2005 Level=error mod_jk child workerEnv in error state 2
+[id=10010] SourceFile=Apache_full.log Time=Thu Oct 20 18:47:02 2005 Level=error [client 213.219.16.66] File does not exist: /var/www/html/phpmyadmin","{""summary"": ""The fault: mod_jk reported a child worker environment in an error state; no request impact is shown. For background, the connector configuration initialized successfully.""}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The log at id=10009 reports 'mod_jk child workerEnv in error state 2', and id=10008 reports 'workerEnv.init() ok' for workers2.properties, so both claims are supported. The statement that no request impact is shown is also consistent with the chunk, which has no related request failures. The phrase 'connector configuration initialized successfully' is a fair abstraction of the workerEnv.init() ok message."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The only genuine fault in the chunk is the mod_jk child workerEnv error state (id=10009), and the summary captures it. The repeated 'File does not exist: /var/www/html/phpmyadmin' errors are client-side requests for a missing resource (the kind of probe the system description treats as non-faults), so omitting them is correct. The jk2_init and workerEnv.init notices are routine."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is short and focused: it states the fault and adds one brief line of relevant background (successful init). It has no repetition or irrelevant content, and it correctly leaves out the repeated phpmyadmin 404-style entries.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The logs explicitly report 'mod_jk child workerEnv in error state 2' and successful workerEnv.init() initialization. No request impact is documented. The summary accurately reflects these observations without asserting unsupported consequences."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The mod_jk child worker environment entering an error state is the only identifiable internal fault and is correctly covered. Repeated missing phpmyadmin file messages indicate unsuccessful client requests, not an evidenced server malfunction."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary concisely identifies the mod_jk fault, clarifies the absence of documented request impact, and includes relevant successful initialization context. No unnecessary repetition or irrelevant information is present.""
+}"
+apache,10,extractive,"[id=49261] SourceFile=Apache_full.log Time=Mon Feb 20 05:00:04 2006 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[id=49262] SourceFile=Apache_full.log Time=Mon Feb 20 05:00:04 2006 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[id=49263] SourceFile=Apache_full.log Time=Mon Feb 20 05:00:08 2006 Level=error jk2_init() Can't find child 5563 in scoreboard
+[id=49264] SourceFile=Apache_full.log Time=Mon Feb 20 05:00:08 2006 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[id=49265] SourceFile=Apache_full.log Time=Mon Feb 20 05:00:08 2006 Level=error mod_jk child init 1 -2
+[id=49266] SourceFile=Apache_full.log Time=Mon Feb 20 05:00:09 2006 Level=error jk2_init() Can't find child 5565 in scoreboard
+[id=49267] SourceFile=Apache_full.log Time=Mon Feb 20 05:00:09 2006 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[id=49268] SourceFile=Apache_full.log Time=Mon Feb 20 05:00:09 2006 Level=error mod_jk child init 1 -2
+[id=49269] SourceFile=Apache_full.log Time=Mon Feb 20 05:00:09 2006 Level=notice jk2_init() Found child 5564 in scoreboard slot 115
+[id=49270] SourceFile=Apache_full.log Time=Mon Feb 20 05:00:09 2006 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties","{""critical_events"": [""[id=49263] SourceFile=Apache_full.log Time=Mon Feb 20 05:00:08 2006 Level=error jk2_init() Can't find child 5563 in scoreboard"", ""[id=49265] SourceFile=Apache_full.log Time=Mon Feb 20 05:00:08 2006 Level=error mod_jk child init 1 -2""], ""context_events"": [""[id=49261] SourceFile=Apache_full.log Time=Mon Feb 20 05:00:04 2006 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties""]}","{“faithfulness”:”yes”,”faithfulness_reason”:”The summary is extractive and every selected line (ids 49261, 49263, 49265) appears verbatim in the original chunk. No unsupported claims or interpretations are added.”,”fault_completeness”:”some”,”fault_completeness_reason”:”The logs show two separate occurrences of the same failure pattern: jk2_init() ‘Can’t find child ... in scoreboard’ followed by ‘mod_jk child init 1 -2’ for child 5563 (ids 49263, 49265) and for child 5565 (ids 49266, 49268). The summary covers only the first occurrence and omits the second (ids 49266, 49268), which is a distinct failure involving a different child process.”,”conciseness”:”partly”,”conciseness_reason”:”The two critical events are relevant. The context event (id=49261, a routine ‘workerEnv.init() ok’ notice) adds little insight into the faults. The same message recurs in ids 49262, 49264, 49267 and 49270, and only one of those is picked, so the selection doesn’t convey any meaningful pattern.”}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""All selected events are directly supported by the original logs. Child 5563 was not found in the scoreboard, mod_jk reported a child initialization error, and workerEnv initialization succeeded."",
+  ""fault_completeness"": ""some"",
+  ""fault_completeness_reason"": ""The logs show child initialization failures associated with missing scoreboard entries for two distinct children, 5563 (IDs 49263, 49265) and 5565 (IDs 49266, 49268). The summary captures the failure involving child 5563 but omits the separate failure involving child 5565."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The selected events provide relevant, nonredundant information about the initialization failure and successful worker environment initialization. No irrelevant or repeated information is included.""
+}"
+linux,10,hybrid,"[id=4461] SourceFile=Linux_full.log Month=Sep Day=9 Time=8:15:44 Host=combo Component=sshd(pam_unix) PID=11140 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=server.novacero.com  user=test
+[id=4462] SourceFile=Linux_full.log Month=Sep Day=9 Time=8:15:45 Host=combo Component=sshd(pam_unix) PID=11138 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=server.novacero.com  user=test
+[id=4463] SourceFile=Linux_full.log Month=Sep Day=10 Time=4:06:53 Host=combo Component=su(pam_unix) PID=13141 session opened for user cyrus by (uid=0)
+[id=4464] SourceFile=Linux_full.log Month=Sep Day=10 Time=4:06:54 Host=combo Component=su(pam_unix) PID=13141 session closed for user cyrus
+[id=4465] SourceFile=Linux_full.log Month=Sep Day=10 Time=4:06:55 Host=combo Component=logrotate ALERT exited abnormally with [1]
+[id=4466] SourceFile=Linux_full.log Month=Sep Day=10 Time=4:13:01 Host=combo Component=su(pam_unix) PID=14369 session opened for user news by (uid=0)
+[id=4467] SourceFile=Linux_full.log Month=Sep Day=10 Time=4:13:01 Host=combo Component=su(pam_unix) PID=14369 session closed for user news
+[id=4468] SourceFile=Linux_full.log Month=Sep Day=11 Time=4:03:39 Host=combo Component=su(pam_unix) PID=16851 session opened for user cyrus by (uid=0)
+[id=4469] SourceFile=Linux_full.log Month=Sep Day=11 Time=4:03:39 Host=combo Component=su(pam_unix) PID=16851 session closed for user cyrus
+[id=4470] SourceFile=Linux_full.log Month=Sep Day=11 Time=4:03:41 Host=combo Component=cups cupsd shutdown succeeded","{""critical_events"": [""[id=4465] SourceFile=Linux_full.log Month=Sep Day=10 Time=4:06:55 Host=combo Component=logrotate ALERT exited abnormally with [1]""], ""context_events"": [], ""analysis"": {""fault_category"": ""application"", ""affected_components"": [""logrotate""], ""recovery_state"": ""unknown"", ""likely_cause"": ""undetermined"", ""evidence_ids"": [""4465""]}, ""interpretation"": ""Logrotate failed during its run. The logs do not show why it failed or whether it recovered.""}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""All claims are supported by log id=4465, which shows logrotate ALERT exited abnormally with [1]. The summary says logrotate failed, the cause is undetermined, and recovery is unknown. These are consistent with the logs, which give no cause or recovery information. The 'application' category and the affected component 'logrotate' are reasonable inferences."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The only distinct fault in the chunk is the abnormal exit of logrotate (id=4465), and the summary captures it. The sshd authentication failures (4461-4462) are expected access rejections, not system faults. The su session open/close pairs and the cupsd shutdown succeeded are normal operations. Nothing is missing."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary lists one critical event, leaves context_events empty, and gives a short, non-repetitive interpretation. The evidence_ids field points to the same event as critical_events, but that is a necessary reference. There is no irrelevant content.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""Log entry 4465 explicitly reports that logrotate exited abnormally with status 1. The summary correctly identifies the failure and affected component. The logs provide no cause or recovery information, consistent with the stated uncertainty."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The only identifiable system fault is the abnormal termination of logrotate (4465), which is correctly covered. SSH authentication failures (4461–4462), su session activities (4463–4464, 4466–4469), and successful CUPS shutdown (4470) do not establish additional system faults."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary focuses on the single evidenced fault, provides useful component and recovery information, and avoids unnecessary normal-operation details. The structured fields and interpretation are complementary rather than excessively repetitive.""
+}"
+apache,10,extractive,"[id=20751] SourceFile=Apache_full.log Time=Tue Nov 22 10:35:32 2005 Level=error mod_jk child workerEnv in error state 4
+[id=20752] SourceFile=Apache_full.log Time=Tue Nov 22 10:40:35 2005 Level=notice jk2_init() Found child 1112 in scoreboard slot 4
+[id=20753] SourceFile=Apache_full.log Time=Tue Nov 22 10:40:36 2005 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[id=20754] SourceFile=Apache_full.log Time=Tue Nov 22 10:40:36 2005 Level=error mod_jk child workerEnv in error state 4
+[id=20755] SourceFile=Apache_full.log Time=Tue Nov 22 10:45:34 2005 Level=notice jk2_init() Found child 1118 in scoreboard slot 4
+[id=20756] SourceFile=Apache_full.log Time=Tue Nov 22 10:45:35 2005 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[id=20757] SourceFile=Apache_full.log Time=Tue Nov 22 10:45:35 2005 Level=error mod_jk child workerEnv in error state 4
+[id=20758] SourceFile=Apache_full.log Time=Tue Nov 22 10:50:25 2005 Level=notice jk2_init() Found child 1126 in scoreboard slot 4
+[id=20759] SourceFile=Apache_full.log Time=Tue Nov 22 10:50:26 2005 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[id=20760] SourceFile=Apache_full.log Time=Tue Nov 22 10:50:26 2005 Level=error mod_jk child workerEnv in error state 4","{""critical_events"": [""[id=20751] SourceFile=Apache_full.log Time=Tue Nov 22 10:35:32 2005 Level=error mod_jk child workerEnv in error state 4""], ""context_events"": [""[id=20753] SourceFile=Apache_full.log Time=Tue Nov 22 10:40:36 2005 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties""]}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""Both selected events are verbatim copies of log lines (id=20751 error state 4 and id=20753 workerEnv.init() ok). No claims are added beyond the source text."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The only distinct fault is the recurring 'mod_jk child workerEnv in error state 4' (ids 20751, 20754, 20757, 20760), which is the same condition repeated across successive child restarts. The summary captures it via id=20751. Repeated occurrences are the same fault, so nothing distinct is missing."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary has two entries: the error event as critical and the successful workerEnv.init() as context. Both are relevant and non-redundant, and the init-ok event gives useful context on the error recurring after successful initialization. No repeated or irrelevant information.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""Both selected events appear verbatim in the original logs. The mod_jk child workerEnv error state 4 is recorded at id=20751, and successful workerEnv initialization is recorded at id=20753."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The logs show a recurring mod_jk child workerEnv error state 4 at ids 20751, 20754, 20757, and 20760. These reports represent the same recurring fault type, which is captured by the selected critical event at id=20751. No other distinct fault type is evidenced."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary selects one representative mod_jk error and one relevant successful initialization event. Both provide useful, supported information without unnecessary repetition.""
+}"
+zookeeper,10,abstractive,"[id=26411] SourceFile=Zookeeper_full.log Date=8/25/2015 Time=11:14:52,243 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FileTxnSnapLog@240 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FileTxnSnapLog SourceLine=240 Snapshotting: 0xc0000018f to /var/lib/zookeeper/version-2/snapshot.c0000018f
+[id=26412] SourceFile=Zookeeper_full.log Date=8/25/2015 Time=11:14:52,248 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FileTxnSnapLog@240 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FileTxnSnapLog SourceLine=240 Snapshotting: 0xc0000018f to /var/lib/zookeeper/version-2/snapshot.c0000018f
+[id=26413] SourceFile=Zookeeper_full.log Date=8/25/2015 Time=11:15:03,167 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Follower@118 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=Follower SourceLine=118 Got zxid 0xd00000001 expected 0x1
+[id=26414] SourceFile=Zookeeper_full.log Date=8/25/2015 Time=11:15:03,168 Level=INFO Location=SyncThread:1:FileTxnLog@199 Thread=SyncThread:1 Component=FileTxnLog SourceLine=199 Creating new log file: log.d00000001
+[id=26415] SourceFile=Zookeeper_full.log Date=8/25/2015 Time=11:16:08,945 Level=INFO Location=/10.10.34.11:3888:QuorumCnxManager$Listener@493 Thread=/10.10.34.11:3888 Component=QuorumCnxManager$Listener SourceLine=493 Received connection request /10.10.34.13:51438
+[id=26416] SourceFile=Zookeeper_full.log Date=8/25/2015 Time=11:16:08,950 Level=INFO Location=WorkerReceiver[myid=1]:FastLeaderElection@542 Thread=WorkerReceiver[myid=1] Component=FastLeaderElection SourceLine=542 Notification: 3 (n.leader), 0xc0000018f (n.zxid), 0x1 (n.round), LOOKING (n.state), 3 (n.sid), 0xc (n.peerEPoch), FOLLOWING (my state)
+[id=26417] SourceFile=Zookeeper_full.log Date=8/25/2015 Time=11:19:47,348 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Follower@89 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=Follower SourceLine=89 Exception when following the leader
+[id=26418] SourceFile=Zookeeper_full.log Date=8/25/2015 Time=11:19:47,348 Level=WARN Location=RecvWorker:2:QuorumCnxManager$RecvWorker@762 Thread=RecvWorker:2 Component=QuorumCnxManager$RecvWorker SourceLine=762 Connection broken for id 2, my id = 1, error = 
+[id=26419] SourceFile=Zookeeper_full.log Date=8/25/2015 Time=11:19:47,350 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Follower@166 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=Follower SourceLine=166 shutdown called
+[id=26420] SourceFile=Zookeeper_full.log Date=8/25/2015 Time=11:19:47,350 Level=WARN Location=RecvWorker:2:QuorumCnxManager$RecvWorker@765 Thread=RecvWorker:2 Component=QuorumCnxManager$RecvWorker SourceLine=765 Interrupting SendWorker","{""summary"": ""The fault: Server 1’s follower reported an exception while following the leader, then shut down. For background, server 1 received a connection request from server 3 and later received election notification from that peer.""}","{
+  ""faithfulness"": ""partly"",
+  ""faithfulness_reason"": ""The follower exception while following the leader and the subsequent shutdown (ids 26417, 26419) are supported. The connection request is from 10.10.34.13, and the notification has n.sid=3, so 'server 3' is a reasonable inference, though the logs never explicitly map that IP to server 3. The claim that the election notification came 'later' from 'that peer' is supported by the timing and sid, but the link between the IP and sid 3 is an assumption. The summary also does not say the leader was server 2, which is fine, but it omits the broken connection to id 2."",
+  ""fault_completeness"": ""some"",
+  ""fault_completeness_reason"": ""The distinct fault is the follower's failure while following the leader (26417), accompanied by the broken connection to server 2 (26418), the follower shutdown (26419), and the interrupted SendWorker (26420). The summary covers the exception and shutdown. It omits the zxid mismatch warning (26413, 'Got zxid 0xd00000001 expected 0x1'), a possible sync or consistency anomaly, and the broken connection to peer 2, which was the likely cause of the follower failure. These are related but distinct signals, so coverage is only partial."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is short and has no repetition. The background sentence about the connection request and election notification is mildly peripheral but provides relevant election context.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""Logs 26417 and 26419 confirm that server 1's follower encountered an exception while following the leader and subsequently initiated shutdown. Logs 26415 and 26416 support the connection request from server 3 and the subsequent election notification from that peer."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The summary captures the evidenced follower exception and shutdown (26417, 26419). The broken connection to server 2 (26418) and SendWorker interruption (26420) occur in the same failure sequence and do not establish a separate fault. The zxid mismatch warning (26413) alone does not establish an unsuccessful operation."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary briefly describes the follower failure and shutdown while providing relevant connection and election context. All information is supported, useful, and nonredundant.""
+}"
+zookeeper,10,abstractive,"[id=48971] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=00:19:39,870 Level=INFO Location=CommitProcessor:2:ZooKeeperServer@595 Thread=CommitProcessor:2 Component=ZooKeeperServer SourceLine=595 Established session 0x24edfaa8717002e with negotiated timeout 10000 for client /10.10.34.42:40679
+[id=48972] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=00:19:45,085 Level=INFO Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=NIOServerCnxnFactory SourceLine=197 Accepted socket connection from /10.10.34.14:60950
+[id=48973] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=00:19:45,086 Level=WARN Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@793 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=ZooKeeperServer SourceLine=793 Connection request from old client /10.10.34.14:60950; will be dropped if server is in r-o mode
+[id=48974] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=00:19:45,086 Level=INFO Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@839 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=ZooKeeperServer SourceLine=839 Client attempting to establish new session at /10.10.34.14:60950
+[id=48975] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=00:19:45,088 Level=INFO Location=CommitProcessor:2:ZooKeeperServer@595 Thread=CommitProcessor:2 Component=ZooKeeperServer SourceLine=595 Established session 0x24edfaa8717002f with negotiated timeout 10000 for client /10.10.34.14:60950
+[id=48976] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=00:19:48,000 Level=INFO Location=SessionTracker:ZooKeeperServer@325 Thread=SessionTracker Component=ZooKeeperServer SourceLine=325 Expiring session 0x14edfaa86f60022, timeout of 10000ms exceeded
+[id=48977] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=00:19:48,000 Level=INFO Location=ProcessThread(sid:2 cport:-1)::PrepRequestProcessor@476 Thread=ProcessThread(sid:2 cport:-1): Component=PrepRequestProcessor SourceLine=476 Processed session termination for sessionid: 0x14edfaa86f60022
+[id=48978] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=00:20:06,204 Level=INFO Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=NIOServerCnxnFactory SourceLine=197 Accepted socket connection from /10.10.34.11:58074
+[id=48979] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=00:20:06,204 Level=WARN Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@793 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=ZooKeeperServer SourceLine=793 Connection request from old client /10.10.34.11:58074; will be dropped if server is in r-o mode
+[id=48980] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=00:20:06,205 Level=INFO Location=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@839 Thread=NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181 Component=ZooKeeperServer SourceLine=839 Client attempting to establish new session at /10.10.34.11:58074","{""summary"": ""Everything looks normal. For background, two client sessions were established, and an expired session was cleaned up.""}","{“faithfulness”: “yes”, “faithfulness_reason”: “The logs show two sessions established (0x24edfaa8717002e for /10.10.34.42 and 0x24edfaa8717002f for /10.10.34.14) and one session (0x14edfaa86f60022) expired after exceeding its 10000ms timeout and then processed for termination. The claim that everything looks normal is also consistent with the logs.”, “fault_completeness”: “no faults present”, “fault_completeness_reason”: “The chunk contains only routine events: accepted connections, session establishment, a session expiration with normal cleanup, and WARN messages about old clients that are only a conditional notice (‘will be dropped if server is in r-o mode’). No failed operation, quorum issue, service unavailability or abnormal termination is evident.”, “conciseness”: “yes”, “conciseness_reason”: “The summary is short and accurately describes normal operation, with no irrelevant, unsupported or repeated information.”}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The logs confirm two established client sessions (48971 and 48975) and the expiration and termination of an older session (48976–48977). The old-client warnings are conditional, and no actual connection rejection or service malfunction is demonstrated. Describing the observed operations as normal is supported."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""No identifiable system faults occur. Both reported session establishments succeeded, the expired session was terminated normally, and the old-client warnings do not establish an actual failure. The final client connection attempt has no recorded failure."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary briefly and accurately captures the normal session establishments and expiration handling without irrelevant details, unsupported interpretations, or repetition.""
+}"
+linux,10,hybrid,"[id=5011] SourceFile=Linux_full.log Month=Sep Day=19 Time=5:58:41 Host=combo Component=udev PID=2753 creating device node '/udev/vcsa6'
+[id=5012] SourceFile=Linux_full.log Month=Sep Day=19 Time=5:58:42 Host=combo Component=udev PID=2754 creating device node '/udev/vcsa2'
+[id=5013] SourceFile=Linux_full.log Month=Sep Day=19 Time=5:58:42 Host=combo Component=udev PID=2755 creating device node '/udev/vcs4'
+[id=5014] SourceFile=Linux_full.log Month=Sep Day=19 Time=5:58:42 Host=combo Component=udev PID=2756 creating device node '/udev/vcsa5'
+[id=5015] SourceFile=Linux_full.log Month=Sep Day=19 Time=5:58:42 Host=combo Component=udev PID=2757 creating device node '/udev/vcs3'
+[id=5016] SourceFile=Linux_full.log Month=Sep Day=19 Time=5:58:46 Host=combo Component=udev PID=2806 creating device node '/udev/vcs7'
+[id=5017] SourceFile=Linux_full.log Month=Sep Day=19 Time=5:58:46 Host=combo Component=udev PID=2813 creating device node '/udev/vcsa7'
+[id=5018] SourceFile=Linux_full.log Month=Sep Day=19 Time=5:58:46 Host=combo Component=udev PID=2831 removing device node '/udev/vcs7'
+[id=5019] SourceFile=Linux_full.log Month=Sep Day=19 Time=5:58:46 Host=combo Component=udev PID=2838 removing device node '/udev/vcsa7'
+[id=5020] SourceFile=Linux_full.log Month=Sep Day=19 Time=5:58:48 Host=combo Component=udev PID=2858 creating device node '/udev/vcsa7'","{""critical_events"": [], ""context_events"": [""[id=5011] SourceFile=Linux_full.log Month=Sep Day=19 Time=5:58:41 Host=combo Component=udev PID=2753 creating device node '/udev/vcsa6'"", ""[id=5020] SourceFile=Linux_full.log Month=Sep Day=19 Time=5:58:48 Host=combo Component=udev PID=2858 creating device node '/udev/vcsa7'""], ""analysis"": null, ""interpretation"": ""Everything looks normal.""}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""Both context events (id=5011 and id=5020) are verbatim, accurate log lines showing udev creating device nodes. The empty critical_events list and the interpretation 'Everything looks normal' are supported, as the chunk contains only routine udev device node creation and removal."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The chunk contains only routine udev create/remove operations on /udev/vcs* and /udev/vcsa* nodes. The removal and re-creation of vcsa7 is normal device management, with no errors, failures, or abnormal behavior."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is short, with an appropriately empty critical_events list, two relevant context events, and a brief accurate interpretation. Nothing is repeated or irrelevant.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The selected context events accurately reproduce log entries 5011 and 5020. The interpretation that everything looks normal is consistent with routine udev device-node creation and removal activities, with no evidenced malfunction."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""All ten log entries describe routine udev device-node creation or removal. The removal and subsequent recreation of device nodes do not establish a failure or disruption. No identifiable faults are present, so the empty critical_events list is appropriate."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary selects two representative device-node creation events and provides a brief, supported normal-operation interpretation. The selected events are distinct, and there is no unnecessary repetition or unsupported information.""
+}"
+zookeeper,10,extractive,"[id=20491] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=23:49:56,444 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@368 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumCnxManager SourceLine=368 Cannot open channel to 2 at election address /10.10.34.12:3888
+[id=20492] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=23:50:01,450 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@368 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumCnxManager SourceLine=368 Cannot open channel to 3 at election address /10.10.34.13:3888
+[id=20493] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=23:50:01,451 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FastLeaderElection SourceLine=774 Notification time out: 1600
+[id=20494] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=23:50:08,056 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@368 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumCnxManager SourceLine=368 Cannot open channel to 2 at election address /10.10.34.12:3888
+[id=20495] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=23:50:13,061 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@368 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumCnxManager SourceLine=368 Cannot open channel to 3 at election address /10.10.34.13:3888
+[id=20496] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=23:50:13,061 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FastLeaderElection SourceLine=774 Notification time out: 3200
+[id=20497] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=23:50:21,267 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@368 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumCnxManager SourceLine=368 Cannot open channel to 2 at election address /10.10.34.12:3888
+[id=20498] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=23:50:26,273 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@368 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumCnxManager SourceLine=368 Cannot open channel to 3 at election address /10.10.34.13:3888
+[id=20499] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=23:50:26,273 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FastLeaderElection SourceLine=774 Notification time out: 6400
+[id=20500] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=23:50:35,672 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@368 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumCnxManager SourceLine=368 Cannot open channel to 2 at election address /10.10.34.12:3888","{""critical_events"": [""[id=20491] SourceFile=Zookeeper_full.log Date=7/30/2015 Time=23:49:56,444 Level=WARN Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@368 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumCnxManager SourceLine=368 Cannot open channel to 2 at election address /10.10.34.12:3888""], ""context_events"": []}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The only selected event, id=20491, is copied verbatim from the log. It reports a failure to open a channel to server 2 at 10.10.34.12:3888, and the summary adds no unsupported claims or interpretations."",
+  ""fault_completeness"": ""some"",
+  ""fault_completeness_reason"": ""The log chunk shows a persistent quorum connectivity failure. Server 1 repeatedly fails to open election channels to both peer 2 (ids 20491, 20494, 20497, 20500) and peer 3 (ids 20492, 20495, 20498). The Notification time out values keep growing (1600, 3200, 6400), which shows election retries are failing to reach a quorum. The summary covers only the single failure to server 2. It omits the failures to server 3 and the sustained, escalating nature of the problem, so the essential nature of the fault is only partly conveyed."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary has one relevant, non-redundant event and an empty context_events list. It contains no irrelevant or repeated information.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The selected event [id=20491] is reproduced accurately from the original logs and confirms that node 1 could not open an election channel to node 2 at 10.10.34.12:3888. No unsupported claims are introduced."",
+  ""fault_completeness"": ""some"",
+  ""fault_completeness_reason"": ""The logs show repeated unsuccessful election-channel connections from node 1 to both node 2 and node 3, accompanied by increasing leader-election notification timeouts (1600, 3200, 6400). The summary captures the failed connection to node 2 but omits the distinct failed connection to node 3. The repeated timeouts provide context for the ongoing election difficulties."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary contains one relevant, accurately extracted log event without unnecessary repetition or unsupported information. Although other events are omitted, the selected information is useful and nonredundant.""
+}"
+linux,10,abstractive,"[id=22631] SourceFile=Linux_full.log Month=Jan Day=26 Time=15:32:36 Host=combo Component=sshd(pam_unix) PID=3224 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=196.1.179.102  user=test
+[id=22632] SourceFile=Linux_full.log Month=Jan Day=26 Time=15:32:36 Host=combo Component=sshd(pam_unix) PID=3225 authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=196.1.179.102  user=test
+[id=22633] SourceFile=Linux_full.log Month=Jan Day=26 Time=16:30:12 Host=combo Component=ftpd PID=3231 connection from 216.19.205.44 (216-19-205-44.getnet.net) at Thu Jan 26 16:30:12 2006 
+[id=22634] SourceFile=Linux_full.log Month=Jan Day=26 Time=16:30:12 Host=combo Component=ftpd PID=3228 connection from 216.19.205.44 (216-19-205-44.getnet.net) at Thu Jan 26 16:30:12 2006 
+[id=22635] SourceFile=Linux_full.log Month=Jan Day=26 Time=16:30:12 Host=combo Component=ftpd PID=3241 connection from 216.19.205.44 (216-19-205-44.getnet.net) at Thu Jan 26 16:30:12 2006 
+[id=22636] SourceFile=Linux_full.log Month=Jan Day=26 Time=16:30:12 Host=combo Component=ftpd PID=3239 connection from 216.19.205.44 (216-19-205-44.getnet.net) at Thu Jan 26 16:30:12 2006 
+[id=22637] SourceFile=Linux_full.log Month=Jan Day=26 Time=16:30:12 Host=combo Component=ftpd PID=3229 connection from 216.19.205.44 (216-19-205-44.getnet.net) at Thu Jan 26 16:30:12 2006 
+[id=22638] SourceFile=Linux_full.log Month=Jan Day=26 Time=16:30:12 Host=combo Component=ftpd PID=3230 connection from 216.19.205.44 (216-19-205-44.getnet.net) at Thu Jan 26 16:30:12 2006 
+[id=22639] SourceFile=Linux_full.log Month=Jan Day=26 Time=16:30:12 Host=combo Component=ftpd PID=3240 connection from 216.19.205.44 (216-19-205-44.getnet.net) at Thu Jan 26 16:30:12 2006 
+[id=22640] SourceFile=Linux_full.log Month=Jan Day=26 Time=16:30:12 Host=combo Component=ftpd PID=3242 connection from 216.19.205.44 (216-19-205-44.getnet.net) at Thu Jan 26 16:30:12 2006","{""summary"": ""Everything looks normal.""}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The summary says everything looks normal. The logs show two PAM authentication failures for user 'test' from 196.1.179.102 and eight ftpd connection records from 216.19.205.44. None of these shows an internal failure, service malfunction, or abnormal termination. Authentication failures alone are not system faults. The claim is not contradicted."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""Failed SSH authentication attempts are expected access rejections, not system malfunctions. The ftpd connection entries are routine connection records with no error or failure outcome. Nothing in the chunk shows a resource failure, forced termination, or disrupted service."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is a single short statement with no irrelevant or repeated information. It correctly describes a chunk with no system faults.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The logs show two SSH authentication failures for user test and eight FTP connection records, with no evidence of an internal system malfunction or service disruption. The general description of normal system operation is supported."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The SSH authentication failures are unsuccessful login attempts, not system faults. The FTP connection records do not indicate failed operations or service malfunctions."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is brief, relevant, and nonredundant. It provides a supported high-level characterization without unnecessary details.""
+}"
+apache,10,hybrid,"[id=5141] SourceFile=Apache_full.log Time=Thu Jul 21 03:37:33 2005 Level=error [client 218.144.240.75] File does not exist: /var/www/html/bin
+[id=5142] SourceFile=Apache_full.log Time=Thu Jul 21 03:37:33 2005 Level=error [client 218.144.240.75] File does not exist: /var/www/html/bin
+[id=5143] SourceFile=Apache_full.log Time=Thu Jul 21 03:37:33 2005 Level=error [client 218.144.240.75] attempt to invoke directory as script: /var/www/cgi-bin/
+[id=5144] SourceFile=Apache_full.log Time=Thu Jul 21 03:37:33 2005 Level=error [client 218.144.240.75] attempt to invoke directory as script: /var/www/cgi-bin/
+[id=5145] SourceFile=Apache_full.log Time=Thu Jul 21 03:37:33 2005 Level=error [client 218.144.240.75] attempt to invoke directory as script: /var/www/cgi-bin/
+[id=5146] SourceFile=Apache_full.log Time=Thu Jul 21 03:37:33 2005 Level=error [client 218.144.240.75] File does not exist: /var/www/html/bin
+[id=5147] SourceFile=Apache_full.log Time=Thu Jul 21 03:37:33 2005 Level=error [client 218.144.240.75] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[id=5148] SourceFile=Apache_full.log Time=Thu Jul 21 03:37:33 2005 Level=error [client 218.144.240.75] script not found or unable to stat: /var/www/cgi-bin/awstats
+[id=5149] SourceFile=Apache_full.log Time=Thu Jul 21 03:37:33 2005 Level=error [client 218.144.240.75] File does not exist: /var/www/html/bin
+[id=5150] SourceFile=Apache_full.log Time=Thu Jul 21 03:37:33 2005 Level=error [client 218.144.240.75] File does not exist: /var/www/html/bin","{""critical_events"": [], ""context_events"": [], ""analysis"": null, ""interpretation"": ""Everything looks normal.""}","{
+  ""faithfulness"": ""partly"",
+  ""faithfulness_reason"": ""The summary's only substantive claim is 'Everything looks normal.' This is largely consistent with the logs: they show a single client (218.144.240.75) probing for missing files and scripts, which are client-side rejected requests rather than internal failures. However, the logs contain ten error-level entries, so calling them 'normal' without mentioning the repeated probing or rejected requests slightly overstates and is not fully supported."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""All entries are 'File does not exist', 'attempt to invoke directory as script', and 'script not found or unable to stat' (awstats.pl, awstats) from one client at the same second. These are expected rejections of probing/scanning requests from a client, with no evidence of an internal malfunction, resource failure, or abnormal service behavior. No faults are present."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary has empty event lists, a null analysis, and a single short interpretation. There is no irrelevant or repeated information.""
+}","{
+  ""faithfulness"": ""partly"",
+  ""faithfulness_reason"": ""The logs show repeated unsuccessful requests for a nonexistent /var/www/html/bin path, attempts to invoke /var/www/cgi-bin/ as a script, and missing or inaccessible awstats scripts. These are request-level errors rather than demonstrated server malfunctions. The empty critical-event selection is appropriate, but 'Everything looks normal' overlooks the unsuccessful requests."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The logs contain no clear evidence of an internal Apache malfunction or service disruption. Missing requested files and invalid CGI invocation attempts are client-request errors, not independently established system faults."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is brief and nonredundant, with no unnecessary details. Its overly broad interpretation affects faithfulness rather than conciseness.""
+}"
+apache,10,hybrid,"[id=9891] SourceFile=Apache_full.log Time=Sun Oct 16 04:14:44 2005 Level=error config.update(): Can't create vm:
+[id=9892] SourceFile=Apache_full.log Time=Sun Oct 16 04:14:44 2005 Level=error env.createBean2(): Factory error creating worker.jni:onStartup ( worker.jni, onStartup)
+[id=9893] SourceFile=Apache_full.log Time=Sun Oct 16 04:14:44 2005 Level=error config.update(): Can't create worker.jni:onStartup
+[id=9894] SourceFile=Apache_full.log Time=Sun Oct 16 04:14:44 2005 Level=error env.createBean2(): Factory error creating worker.jni:onShutdown ( worker.jni, onShutdown)
+[id=9895] SourceFile=Apache_full.log Time=Sun Oct 16 04:14:44 2005 Level=error config.update(): Can't create worker.jni:onShutdown
+[id=9896] SourceFile=Apache_full.log Time=Sun Oct 16 04:15:16 2005 Level=notice mod_python: Creating 32 session mutexes based on 150 max processes and 0 max threads.
+[id=9897] SourceFile=Apache_full.log Time=Sun Oct 16 04:15:24 2005 Level=notice mod_security/1.9dev2 configured
+[id=9898] SourceFile=Apache_full.log Time=Sun Oct 16 04:15:24 2005 Level=notice Apache/2.0.49 (Fedora) configured -- resuming normal operations
+[id=9899] SourceFile=Apache_full.log Time=Sun Oct 16 04:15:24 2005 Level=notice jk2_init() Found child 15728 in scoreboard slot 0
+[id=9900] SourceFile=Apache_full.log Time=Sun Oct 16 04:15:24 2005 Level=notice jk2_init() Found child 15733 in scoreboard slot 5","{""critical_events"": [""[id=9891] SourceFile=Apache_full.log Time=Sun Oct 16 04:14:44 2005 Level=error config.update(): Can't create vm:"", ""[id=9892] SourceFile=Apache_full.log Time=Sun Oct 16 04:14:44 2005 Level=error env.createBean2(): Factory error creating worker.jni:onStartup ( worker.jni, onStartup)"", ""[id=9893] SourceFile=Apache_full.log Time=Sun Oct 16 04:14:44 2005 Level=error config.update(): Can't create worker.jni:onStartup"", ""[id=9894] SourceFile=Apache_full.log Time=Sun Oct 16 04:14:44 2005 Level=error env.createBean2(): Factory error creating worker.jni:onShutdown ( worker.jni, onShutdown)"", ""[id=9895] SourceFile=Apache_full.log Time=Sun Oct 16 04:14:44 2005 Level=error config.update(): Can't create worker.jni:onShutdown""], ""context_events"": [""[id=9896] SourceFile=Apache_full.log Time=Sun Oct 16 04:15:16 2005 Level=notice mod_python: Creating 32 session mutexes based on 150 max processes and 0 max threads.""], ""analysis"": {""fault_category"": ""application"", ""affected_components"": [""worker.jni"", ""vm""], ""recovery_state"": ""unknown"", ""likely_cause"": ""undetermined"", ""evidence_ids"": [""9891"", ""9892"", ""9893"", ""9894"", ""9895""]}, ""interpretation"": ""The logs show that the worker.jni startup and shutdown could not be created, and the mod_security and mod_python notices do not indicate a failure.""}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""All claims match the logs. The five error events (ids 9891-9895) are quoted accurately, and the affected components worker.jni and vm are correct. The mod_python notice (9896) is correctly described as context. Recovery_state 'unknown' and likely_cause 'undetermined' are non-committal and not contradicted. The interpretation that the worker.jni startup and shutdown 'could not be created' agrees with the 'Can't create' and 'Factory error' messages. The statement that the mod_security and mod_python notices do not indicate a failure is also supported."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The logs contain one distinct fault cluster: failures to create the vm, worker.jni:onStartup and worker.jni:onShutdown, with the factory error and config.update failure for each (ids 9891-9895). The summary lists all five events as critical events and names worker.jni and vm as affected components. No faults are omitted."",
+  ""conciseness"": ""partly"",
+  ""conciseness_reason"": ""The critical events and analysis are relevant. The interpretation largely repeats the critical_events and analysis fields. The mod_python session-mutex notice in context_events is routine and adds little insight, and the interpretation mentions mod_security without listing it in context_events.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The logs explicitly show failures to create the VM and worker.jni onStartup and onShutdown components (9891–9895). The affected components and application-level classification are supported. The cause and recovery of these components are not established, although Apache subsequently resumes normal operations. The mod_python and mod_security notices do not indicate failures."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""All identifiable faults are covered: VM creation failure (9891), worker.jni:onStartup creation failure (9892–9893), and worker.jni:onShutdown creation failure (9894–9895). The remaining entries describe routine initialization and Apache resuming normal operations."",
+  ""conciseness"": ""partly"",
+  ""conciseness_reason"": ""The summary contains useful fault information and relevant initialization context, but the worker.jni creation failures are repeated across critical_events and interpretation. The paired factory and configuration errors also describe the same failures, introducing some redundancy.""
+}"
+linux,10,extractive,"[id=3081] SourceFile=Linux_full.log Month=Aug Day=2 Time=8:01:28 Host=combo Component=gpm PID=2076 *** info [mice.c(1766)]: 
+[id=3082] SourceFile=Linux_full.log Month=Aug Day=2 Time=8:01:28 Host=combo Component=gpm PID=2076 imps2: Auto-detected intellimouse PS/2
+[id=3083] SourceFile=Linux_full.log Month=Aug Day=2 Time=8:01:32 Host=combo Component=login(pam_unix) PID=2400 session opened for user root by LOGIN(uid=0)
+[id=3084] SourceFile=Linux_full.log Month=Aug Day=2 Time=8:02:04 Host=combo Component=gpm PID=2076 *** info [client.c(137)]: 
+[id=3085] SourceFile=Linux_full.log Month=Aug Day=2 Time=8:02:04 Host=combo Component=gpm PID=2076 Connecting at fd 6
+[id=3086] SourceFile=Linux_full.log Month=Aug Day=2 Time=8:03:37 Host=combo Component=gpm PID=2076 *** info [client.c(275)]: 
+[id=3087] SourceFile=Linux_full.log Month=Aug Day=2 Time=8:03:37 Host=combo Component=gpm PID=2076 *** info [client.c(284)]: 
+[id=3088] SourceFile=Linux_full.log Month=Aug Day=2 Time=8:04:10 Host=combo Component=login(pam_unix) PID=2400 session closed for user root
+[id=3089] SourceFile=Linux_full.log Month=Aug Day=2 Time=8:04:10 Host=combo Component=udev PID=25043 removing device node '/udev/vcsa2'
+[id=3090] SourceFile=Linux_full.log Month=Aug Day=2 Time=8:04:10 Host=combo Component=udev PID=25042 removing device node '/udev/vcs2'","{""critical_events"": [], ""context_events"": [""[id=3083] SourceFile=Linux_full.log Month=Aug Day=2 Time=8:01:32 Host=combo Component=login(pam_unix) PID=2400 session opened for user root by LOGIN(uid=0)"", ""[id=3088] SourceFile=Linux_full.log Month=Aug Day=2 Time=8:04:10 Host=combo Component=login(pam_unix) PID=2400 session closed for user root"", ""[id=3089] SourceFile=Linux_full.log Month=Aug Day=2 Time=8:04:10 Host=combo Component=udev PID=25043 removing device node '/udev/vcsa2'""]}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The summary reproduces log lines 3083, 3088 and 3089 verbatim. The empty critical_events list is consistent with the chunk, which holds only routine activity: gpm info messages, mouse auto-detection, a root login session opening and closing, and udev removing device nodes."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The chunk contains no malfunction, failed operation, resource failure or abnormal termination. The gpm entries are informational, the PS/2 mouse was auto-detected successfully, the session open and close are normal, and the udev device node removals are routine."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The three context events (session opened, session closed, udev node removal) are grounded and give useful context about the session lifecycle. There is no repetition, and critical_events is correctly empty. The 'vcs2' removal at id=3090 is omitted, but it duplicates the 'vcsa2' removal.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""All three selected context events are directly supported by logs 3083, 3088, and 3089. The empty critical_events list is consistent with the absence of identifiable faults."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The logs show routine mouse detection, gpm activity, root session opening and closing, and device node removal. No malfunction, failed internal operation, or operational disruption is evidenced."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The selected events provide useful, nonredundant context about the root session lifecycle and device node removal. No unsupported, irrelevant, or unnecessarily repeated information is included.""
+}"
+apache,10,hybrid,"[id=181] SourceFile=Apache_full.log Time=Fri Jun 10 22:41:39 2005 Level=error [client 12.168.121.2] Directory index forbidden by rule: /var/www/html/
+[id=182] SourceFile=Apache_full.log Time=Fri Jun 10 23:36:53 2005 Level=error [client 219.127.107.18] Directory index forbidden by rule: /var/www/html/
+[id=183] SourceFile=Apache_full.log Time=Fri Jun 10 23:42:39 2005 Level=error [client 219.43.32.119] Directory index forbidden by rule: /var/www/html/
+[id=184] SourceFile=Apache_full.log Time=Fri Jun 10 23:46:20 2005 Level=error [client 222.166.160.83] Directory index forbidden by rule: /var/www/html/
+[id=185] SourceFile=Apache_full.log Time=Sat Jun 11 01:35:55 2005 Level=error [client 202.188.127.61] Directory index forbidden by rule: /var/www/html/
+[id=186] SourceFile=Apache_full.log Time=Sat Jun 11 02:46:33 2005 Level=error [client 58.83.8.110] Directory index forbidden by rule: /var/www/html/
+[id=187] SourceFile=Apache_full.log Time=Sat Jun 11 03:03:03 2005 Level=error [client 202.133.98.6] script not found or unable to stat: /var/www/cgi-bin/awstats
+[id=188] SourceFile=Apache_full.log Time=Sat Jun 11 03:03:03 2005 Level=error [client 202.133.98.6] script not found or unable to stat: /var/www/cgi-bin/awstats
+[id=189] SourceFile=Apache_full.log Time=Sat Jun 11 03:03:03 2005 Level=error [client 202.133.98.6] script not found or unable to stat: /var/www/cgi-bin/awstats
+[id=190] SourceFile=Apache_full.log Time=Sat Jun 11 03:03:04 2005 Level=error [client 202.133.98.6] script not found or unable to stat: /var/www/cgi-bin/awstats","{""critical_events"": [], ""context_events"": [], ""analysis"": null, ""interpretation"": ""Everything looks normal.""}","{
+“faithfulness”: “yes”,
+“faithfulness_reason”: “The summary’s only factual claim is ‘Everything looks normal.’ The logs show only client-triggered rejections (directory index forbidden by rule, requests for a non-existent awstats CGI script), with no evidence of an internal malfunction. Empty event lists are therefore consistent with the logs.”,
+“fault_completeness”: “no faults present”,
+“fault_completeness_reason”: “Events 181-186 are ‘Directory index forbidden by rule’ errors, which are expected access-control rejections of client requests. Events 187-190 are repeated ‘script not found or unable to stat’ errors for /var/www/cgi-bin/awstats from one client, which look like probing for a missing script (a client-side error). Neither shows a failed internal operation, resource failure, or abnormal service behavior, so no fault is present.”,
+“conciseness”: “yes”,
+“conciseness_reason”: “The summary is a brief normal-operation statement with correctly empty event lists and no irrelevant, unsupported, or repeated information.”
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The logs show six directory-index access denials enforced by configuration rules and four repeated requests for an unavailable AWStats CGI script. These do not establish an internal server malfunction or service disruption, so the interpretation that everything looks normal is acceptable."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""No identifiable server faults are evidenced. The directory-index denials are expected access restrictions, and the missing AWStats script messages indicate unsuccessful requests without evidence of an internal malfunction."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is brief and nonredundant. Its empty event selections and concise normal-operation interpretation are appropriate given the absence of identifiable system faults.""
+}"
+apache,10,extractive,"[id=33501] SourceFile=Apache_full.log Time=Mon Jan 09 05:44:43 2006 Level=error [client 131.178.5.110] script not found or unable to stat: /var/www/cgi-bin/awstats
+[id=33502] SourceFile=Apache_full.log Time=Mon Jan 09 05:44:43 2006 Level=error [client 131.178.5.110] File does not exist: /var/www/html/awstats/awstats.pl
+[id=33503] SourceFile=Apache_full.log Time=Mon Jan 09 05:44:44 2006 Level=error [client 131.178.5.110] File does not exist: /var/www/html/awstats/awstats.pl
+[id=33504] SourceFile=Apache_full.log Time=Mon Jan 09 05:44:44 2006 Level=error [client 131.178.5.110] File does not exist: /var/www/html/awstats/awstats.pl
+[id=33505] SourceFile=Apache_full.log Time=Mon Jan 09 05:44:44 2006 Level=error [client 131.178.5.110] File does not exist: /var/www/html/awstats/awstats.pl
+[id=33506] SourceFile=Apache_full.log Time=Mon Jan 09 05:44:44 2006 Level=error [client 131.178.5.110] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[id=33507] SourceFile=Apache_full.log Time=Mon Jan 09 05:44:45 2006 Level=error [client 131.178.5.110] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[id=33508] SourceFile=Apache_full.log Time=Mon Jan 09 05:44:45 2006 Level=error [client 131.178.5.110] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[id=33509] SourceFile=Apache_full.log Time=Mon Jan 09 05:44:45 2006 Level=error [client 131.178.5.110] script not found or unable to stat: /var/www/cgi-bin/awstats.pl
+[id=33510] SourceFile=Apache_full.log Time=Mon Jan 09 05:44:45 2006 Level=error [client 131.178.5.110] script not found or unable to stat: /var/www/cgi-bin/awstats.pl","{""critical_events"": [], ""context_events"": []}","{
+“faithfulness”: “yes”,
+“faithfulness_reason”: “The summary has empty critical_events and context_events lists, so it makes no factual claims that could be unsupported or contradicted by the logs.”,
+“fault_completeness”: “no faults present”,
+“fault_completeness_reason”: “All ten entries are repeated errors from one client (131.178.5.110) requesting nonexistent awstats resources: ‘File does not exist’ for /var/www/html/awstats/awstats.pl and ‘script not found or unable to stat’ for /var/www/cgi-bin/awstats and awstats.pl. These are client-side requests for missing files, probably automated probing. They are expected request handling, not an internal malfunction, resource failure, or abnormal service behavior. The logs show no failed internal operation, so there are no faults to cover.”,
+“conciseness”: “yes”,
+“conciseness_reason”: “The empty event lists contain no irrelevant, unsupported, or repeated information. Since the chunk holds only routine client-side not-found errors, leaving the selection empty is appropriate.”
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The empty event selections make no unsupported factual claims. The logs show repeated requests for missing AWStats files and scripts, without evidence of an internal Apache malfunction."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""All ten entries concern missing AWStats resources requested by the same client. These are unsuccessful resource lookups, not demonstrated internal server faults or operational disruptions."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The empty summary contains no irrelevant, unsupported, or redundant information. Omitting these repeated non-fault request errors is acceptable.""
+}"
+linux,10,hybrid,"[id=12041] SourceFile=Linux_full.log Month=Nov Day=22 Time=14:31:52 Host=combo Component=kernel  [<02129a95>] acct_process+0x15/0x1f
+[id=12042] SourceFile=Linux_full.log Month=Nov Day=22 Time=14:31:52 Host=combo Component=kernel  [<02119ccc>] do_exit+0x9f/0x2e3
+[id=12043] SourceFile=Linux_full.log Month=Nov Day=22 Time=14:31:52 Host=combo Component=kernel  [<0211476a>] do_page_fault+0x362/0x446
+[id=12044] SourceFile=Linux_full.log Month=Nov Day=22 Time=14:31:53 Host=combo Component=kernel  [<0213f423>] put_user_size+0x29/0x2d
+[id=12045] SourceFile=Linux_full.log Month=Nov Day=22 Time=14:31:53 Host=combo Component=kernel  [<0227ecc1>] schedule+0x3ed/0x44d
+[id=12046] SourceFile=Linux_full.log Month=Nov Day=22 Time=14:31:53 Host=combo Component=kernel  [<02114408>] do_page_fault+0x0/0x446
+[id=12047] SourceFile=Linux_full.log Month=Nov Day=22 Time=14:31:54 Host=combo Component=kernel Out of Memory: Killed process 1688 (httpd).
+[id=12048] SourceFile=Linux_full.log Month=Nov Day=22 Time=14:31:54 Host=combo Component=kernel httpd: page allocation failure. order:0, mode:0x1d2
+[id=12049] SourceFile=Linux_full.log Month=Nov Day=22 Time=14:31:54 Host=combo Component=kernel  [<0212ebf3>] __alloc_pages+0x274/0x281
+[id=12050] SourceFile=Linux_full.log Month=Nov Day=22 Time=14:31:55 Host=combo Component=kernel  [<021303bd>] do_page_cache_readahead+0xa3/0x101","{""critical_events"": [""[id=12047] SourceFile=Linux_full.log Month=Nov Day=22 Time=14:31:54 Host=combo Component=kernel Out of Memory: Killed process 1688 (httpd)."", ""[id=12048] SourceFile=Linux_full.log Month=Nov Day=22 Time=14:31:54 Host=combo Component=kernel httpd: page allocation failure. order:0, mode:0x1d2""], ""context_events"": [], ""analysis"": {""fault_category"": ""memory"", ""affected_components"": [""httpd""], ""recovery_state"": ""unknown"", ""likely_cause"": ""memory exhaustion"", ""evidence_ids"": [""12047"", ""12048""]}, ""interpretation"": ""The out-of-memory condition forced the kernel to terminate httpd. The logs do not show whether the service recovered.""}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""Every claim is supported by the logs. Id 12047 reports the kernel killing process 1688 (httpd) after an out-of-memory condition, and id 12048 reports an httpd page allocation failure (order:0). The cause 'memory exhaustion' and the affected component 'httpd' follow directly from these entries. The statement that recovery is unknown is also accurate, since the chunk shows nothing about httpd restarting."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The chunk has two distinct faults: the OOM kill of httpd (id 12047) and the page allocation failure in httpd (id 12048). The summary covers both in critical_events and in the analysis. The remaining entries are stack trace frames (acct_process, do_exit, do_page_fault, schedule, __alloc_pages, do_page_cache_readahead). They are contextual details of these events, not separate faults."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary holds only the two relevant fault events and leaves context_events empty, which is acceptable for the unremarkable stack trace frames. The analysis and interpretation fields are short and add the cause and recovery state without restating the log lines, so nothing is irrelevant or redundant.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""All claims are supported by the logs. Event 12047 confirms out-of-memory termination of httpd process 1688, and event 12048 reports a page allocation failure. Memory exhaustion is a supported cause, and no recovery is shown."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""Both distinct fault manifestations are covered: the out-of-memory process termination (12047) and the httpd page allocation failure (12048). The remaining entries are kernel stack-trace frames without additional independently identifiable faults."",
+  ""conciseness"": ""partly"",
+  ""conciseness_reason"": ""The summary contains useful and supported fault information, but the interpretation repeats the out-of-memory termination and unknown recovery state already communicated in the structured fields.""
+}"
+zookeeper,10,extractive,"[id=21161] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=19:12:41,302 Level=INFO Location=main:QuorumPeerMain@127 Thread=main Component=QuorumPeerMain SourceLine=127 Starting quorum peer
+[id=21162] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=19:12:41,323 Level=INFO Location=main:NIOServerCnxnFactory@94 Thread=main Component=NIOServerCnxnFactory SourceLine=94 binding to port 0.0.0.0/0.0.0.0:2181
+[id=21163] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=19:12:41,354 Level=INFO Location=main:QuorumPeer@913 Thread=main Component=QuorumPeer SourceLine=913 tickTime set to 2000
+[id=21164] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=19:12:41,354 Level=INFO Location=main:QuorumPeer@933 Thread=main Component=QuorumPeer SourceLine=933 minSessionTimeout set to -1
+[id=21165] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=19:12:41,355 Level=INFO Location=main:QuorumPeer@944 Thread=main Component=QuorumPeer SourceLine=944 maxSessionTimeout set to -1
+[id=21166] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=19:12:41,355 Level=INFO Location=main:QuorumPeer@959 Thread=main Component=QuorumPeer SourceLine=959 initLimit set to 10
+[id=21167] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=19:12:41,377 Level=INFO Location=main:FileSnap@83 Thread=main Component=FileSnap SourceLine=83 Reading snapshot /var/lib/zookeeper/version-2/snapshot.50000062e
+[id=21168] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=19:12:41,548 Level=INFO Location=Thread-1:QuorumCnxManager$Listener@486 Thread=Thread-1 Component=QuorumCnxManager$Listener SourceLine=486 My election bind port: 0.0.0.0/0.0.0.0:3888
+[id=21169] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=19:12:41,561 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumPeer@670 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumPeer SourceLine=670 LOOKING
+[id=21170] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=19:12:41,564 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@740 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=FastLeaderElection SourceLine=740 New election. My id =  1, proposed zxid=0x50000062e","{""critical_events"": [], ""context_events"": [""[id=21161] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=19:12:41,302 Level=INFO Location=main:QuorumPeerMain@127 Thread=main Component=QuorumPeerMain SourceLine=127 Starting quorum peer"", ""[id=21162] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=19:12:41,323 Level=INFO Location=main:NIOServerCnxnFactory@94 Thread=main Component=NIOServerCnxnFactory SourceLine=94 binding to port 0.0.0.0/0.0.0.0:2181"", ""[id=21169] SourceFile=Zookeeper_full.log Date=7/31/2015 Time=19:12:41,561 Level=INFO Location=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumPeer@670 Thread=QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181 Component=QuorumPeer SourceLine=670 LOOKING""]}","{
+“faithfulness”: “yes”,
+“faithfulness_reason”: “The summary only quotes log lines 21161, 21162 and 21169 verbatim: quorum peer starting, binding to port 2181, and the peer entering LOOKING state. All are present in the original chunk, and it makes no unsupported claims. The empty critical_events list is consistent with the logs.”,
+“fault_completeness”: “no faults present”,
+“fault_completeness_reason”: “The chunk is a normal startup sequence: configuration settings, snapshot read, election port bind on 3888, LOOKING state, and a new election. All entries are INFO level and none shows a failed operation, quorum failure, or service disruption, so no faults are present.”,
+“conciseness”: “yes”,
+“conciseness_reason”: “The summary lists three relevant startup and election context events, with no repetition across fields. The empty critical_events list is correct. The selected lines give meaningful context for the startup and the move into leader election.”
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""All three selected context events are directly supported by the original logs: quorum peer startup (id=21161), binding to client port 2181 (id=21162), and the LOOKING state during leader election (id=21169). The empty critical_events list is consistent with the absence of identifiable faults."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The logs show routine ZooKeeper startup, configuration initialization, snapshot reading, network port binding, and leader election initiation. No failed internal operation, quorum failure, service disruption, or other malfunction is evidenced."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The three selected events provide useful, nonredundant context about service startup, client port binding, and leader election state. No irrelevant, unsupported, or repeated events are included.""
+}"
+apache,10,abstractive,"[id=18111] SourceFile=Apache_full.log Time=Sun Nov 20 23:55:36 2005 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[id=18112] SourceFile=Apache_full.log Time=Sun Nov 20 23:55:36 2005 Level=error mod_jk child workerEnv in error state 4
+[id=18113] SourceFile=Apache_full.log Time=Sun Nov 20 23:55:36 2005 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[id=18114] SourceFile=Apache_full.log Time=Sun Nov 20 23:55:36 2005 Level=error mod_jk child workerEnv in error state 4
+[id=18115] SourceFile=Apache_full.log Time=Mon Nov 21 00:00:48 2005 Level=notice jk2_init() Found child 25279 in scoreboard slot 0
+[id=18116] SourceFile=Apache_full.log Time=Mon Nov 21 00:00:50 2005 Level=notice jk2_init() Found child 25280 in scoreboard slot 2
+[id=18117] SourceFile=Apache_full.log Time=Mon Nov 21 00:00:52 2005 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[id=18118] SourceFile=Apache_full.log Time=Mon Nov 21 00:00:52 2005 Level=error mod_jk child workerEnv in error state 4
+[id=18119] SourceFile=Apache_full.log Time=Mon Nov 21 00:00:52 2005 Level=notice workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[id=18120] SourceFile=Apache_full.log Time=Mon Nov 21 00:00:52 2005 Level=error mod_jk child init 1 0","{""summary"": ""The fault: mod_jk reported a child worker environment in error state 4 twice, and its initialization failed once; the logs do not show whether requests were affected. For background, Apache found two child processes in its scoreboard shortly afterward.""}","{
+  ""faithfulness"": ""partly"",
+  ""faithfulness_reason"": ""The logs show 'mod_jk child workerEnv in error state 4' three times (ids 18112, 18114, 18118), not twice. 'Twice' is a count error. 'Initialization failed once' matches id 18120 ('mod_jk child init 1 0', level=error). The scoreboard claim is accurate: two children (25279 and 25280) were found in scoreboard slots. The statement that the logs do not show whether requests were affected is a reasonable, supported caveat."",
+  ""fault_completeness"": ""some"",
+  ""fault_completeness_reason"": ""The logs contain two distinct fault types: repeated mod_jk workerEnv error state 4 (ids 18112, 18114, 18118) and the mod_jk child init failure (id 18120). The summary covers both in nature, but undercounts the error-state occurrences. Repeated workerEnv error state reports and the child init error are all conveyed in essence, so no distinct fault is missing; the 'some' rating is not warranted by omission, but the count error leaves the first fault partly inaccurate."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is brief and non-repetitive. The caveat about request impact and the scoreboard background are short, grounded in the logs, and give useful context. No irrelevant or repeated information.""
+}","{
+  ""faithfulness"": ""partly"",
+  ""faithfulness_reason"": ""The logs support repeated mod_jk child workerEnv error state 4 messages, a child init error, and discovery of two child processes in scoreboard slots. However, error state 4 appears three times, not twice, and the logs do not explicitly establish that the child initialization failed."",
+  ""fault_completeness"": ""all"",
+  ""fault_completeness_reason"": ""The summary covers the recurring mod_jk child worker environment error state 4 and the separate mod_jk child init error at id=18120. No other distinct faults are evident."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is brief and focused on the mod_jk errors, uncertainty about request impact, and relevant child-process context. It contains no unnecessary repetition or irrelevant details.""
+}"
+linux,10,extractive,"[id=7071] SourceFile=Linux_full.log Month=Oct Day=25 Time=14:09:54 Host=combo Component=named PID=2275 listening on IPv4 interface eth0:20, 63.126.79.115#53
+[id=7072] SourceFile=Linux_full.log Month=Oct Day=25 Time=10:09:54 Host=combo Component=ntpd PID=2304 frequency initialized 0.000 PPM from /var/lib/ntp/drift
+[id=7073] SourceFile=Linux_full.log Month=Oct Day=25 Time=14:09:55 Host=combo Component=named PID=2275 listening on IPv4 interface eth0:21, 63.126.79.120#53
+[id=7074] SourceFile=Linux_full.log Month=Oct Day=25 Time=10:09:55 Host=combo Component=ntpd PID=2304 configure: keyword ""authenticate"" unknown, line ignored
+[id=7075] SourceFile=Linux_full.log Month=Oct Day=25 Time=14:09:55 Host=combo Component=named PID=2275 listening on IPv4 interface eth0:22, 63.126.79.125#53
+[id=7076] SourceFile=Linux_full.log Month=Oct Day=25 Time=14:09:56 Host=combo Component=named PID=2275 couldn't add command channel 127.0.0.1#953: not found
+[id=7077] SourceFile=Linux_full.log Month=Oct Day=25 Time=14:09:56 Host=combo Component=named PID=2275 couldn't add command channel ::1#953: not found
+[id=7078] SourceFile=Linux_full.log Month=Oct Day=25 Time=14:09:57 Host=combo Component=named PID=2275 running
+[id=7079] SourceFile=Linux_full.log Month=Oct Day=25 Time=10:09:57 Host=combo Component=mysqld Starting MySQL:  succeeded
+[id=7080] SourceFile=Linux_full.log Month=Oct Day=25 Time=10:09:57 Host=combo Component=rsyncd PID=2360 rsyncd version 2.6.2 starting, listening on port 873","{""critical_events"": [], ""context_events"": [""[id=7071] SourceFile=Linux_full.log Month=Oct Day=25 Time=14:09:54 Host=combo Component=named PID=2275 listening on IPv4 interface eth0:20, 63.126.79.115#53"", ""[id=7079] SourceFile=Linux_full.log Month=Oct Day=25 Time=10:09:57 Host=combo Component=mysqld Starting MySQL:  succeeded"", ""[id=7080] SourceFile=Linux_full.log Month=Oct Day=25 Time=10:09:57 Host=combo Component=rsyncd PID=2360 rsyncd version 2.6.2 starting, listening on port 873 ""]}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""All three context_events are verbatim copies of log lines 7071, 7079 and 7080. The empty critical_events list makes no unsupported claim about faults."",
+  ""fault_completeness"": ""some"",
+  ""fault_completeness_reason"": ""The logs show two failed internal operations: named could not add command channels on 127.0.0.1#953 and ::1#953 ('not found', ids 7076-7077). They are the same kind of failure but on two separate addresses, so they count as two failed operations. The summary leaves critical_events empty and does not mention either. The ntpd 'keyword authenticate unknown, line ignored' (id 7074) is a minor configuration warning, not a clear fault. named still reached 'running' (id 7078), so the service stayed up, but the failed command-channel setup is still a real failed internal operation that the summary omits."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary lists only three short, non-repeated context events. They are normal startup lines (named listening, MySQL started, rsyncd listening) and add useful context without redundancy or irrelevant content.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""All three selected context events are directly supported by logs 7071, 7079, and 7080: named listening on an IPv4 interface, successful MySQL startup, and rsyncd starting and listening on port 873."",
+  ""fault_completeness"": ""none"",
+  ""fault_completeness_reason"": ""Logs 7076 and 7077 show that named failed to add command channels on IPv4 and IPv6 loopback addresses. These are failed internal operations, although named subsequently started running. Neither failure is represented in the summary. The ignored ntpd configuration keyword in log 7074 is a configuration issue but does not establish a separate operational fault."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The three selected events provide useful, supported startup and service-listening context without irrelevant details or repetition.""
+}"
+apache,10,abstractive,"[id=2511] SourceFile=Apache_full.log Time=Wed Jun 29 22:58:12 2005 Level=error [client 67.166.180.23] File does not exist: /var/www/html/scripts/..%5c%5c..
+[id=2512] SourceFile=Apache_full.log Time=Wed Jun 29 23:09:59 2005 Level=error [client 82.143.196.17] Directory index forbidden by rule: /var/www/html/
+[id=2513] SourceFile=Apache_full.log Time=Wed Jun 29 23:19:49 2005 Level=error [client 80.58.237.20] Directory index forbidden by rule: /var/www/html/
+[id=2514] SourceFile=Apache_full.log Time=Wed Jun 29 23:28:51 2005 Level=error [client 80.133.123.10] Directory index forbidden by rule: /var/www/html/
+[id=2515] SourceFile=Apache_full.log Time=Wed Jun 29 23:40:01 2005 Level=error [client 81.80.21.57] Directory index forbidden by rule: /var/www/html/
+[id=2516] SourceFile=Apache_full.log Time=Wed Jun 29 23:40:13 2005 Level=error [client 83.139.68.75] Directory index forbidden by rule: /var/www/html/
+[id=2517] SourceFile=Apache_full.log Time=Thu Jun 30 00:19:27 2005 Level=error [client 213.254.57.111] Directory index forbidden by rule: /var/www/html/
+[id=2518] SourceFile=Apache_full.log Time=Thu Jun 30 00:39:32 2005 Level=error [client 81.80.21.57] Directory index forbidden by rule: /var/www/html/
+[id=2519] SourceFile=Apache_full.log Time=Thu Jun 30 00:47:39 2005 Level=error [client 217.36.43.189] Directory index forbidden by rule: /var/www/html/
+[id=2520] SourceFile=Apache_full.log Time=Thu Jun 30 00:49:23 2005 Level=error [client 80.94.100.23] Directory index forbidden by rule: /var/www/html/","{""summary"": ""Everything looks normal. For background, no relevant changes are shown.""}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The logs show only client-side or access-policy events: one 'File does not exist' request (id 2511) and nine 'Directory index forbidden by rule' rejections (ids 2512-2520). None of them shows an internal failure, so 'everything looks normal' is a supported characterization of the server's state. The summary makes no specific claims that contradict the logs."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""The missing-file request and the forbidden directory index rejections are expected request handling and policy enforcement, which the system description says are not faults unless they reveal an underlying system problem. No malfunction, resource failure, crash, or abnormal service behavior appears in the chunk."",
+  ""conciseness"": ""partly"",
+  ""conciseness_reason"": ""The first sentence is an accurate, concise normal-operation description. The second sentence, 'For background, no relevant changes are shown,' adds no informational value and is filler, so the summary is slightly padded.""
+}","{
+  ""faithfulness"": ""yes"",
+  ""faithfulness_reason"": ""The logs show a request for a nonexistent file and nine directory index requests forbidden by server rules. These are expected request-handling outcomes, with no evidence of an internal server malfunction. The summary's normal-operation assessment is supported, and no relevant system changes are recorded."",
+  ""fault_completeness"": ""no faults present"",
+  ""fault_completeness_reason"": ""No identifiable server faults are present. The nonexistent file request and repeated directory index access denials do not indicate an Apache malfunction or operational disruption."",
+  ""conciseness"": ""yes"",
+  ""conciseness_reason"": ""The summary is brief, relevant, and nonredundant. It accurately characterizes the absence of system faults without introducing unnecessary technical details.""
+}"

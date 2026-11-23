@@ -1,0 +1,93 @@
+# =============================================================================
+# LOGSUMM — SYSTEM DESCRIPTIONS AND JUDGE EVALUATION PROMPT
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# 1. SYSTEM DESCRIPTIONS
+# -----------------------------------------------------------------------------
+
+SYSTEM_DESCRIPTIONS = {
+    'apache': (
+        'Apache HTTP server. For unknown events, distinguish genuine web-server '
+        'or application failures from expected request handling and routine operation. '
+        'Treat an event as a fault only when the logs provide clear evidence of an '
+        'unsuccessful internal operation, malfunction, or abnormal service behavior. '
+        'Client-side errors, rejected requests, and diagnostic messages are not faults '
+        'unless they reveal an underlying system problem. Consider the event context '
+        'and outcome rather than severity or error keywords alone.'
+    ),
+
+    'linux': (
+        'Linux operating system logs covering kernel, hardware, system services, '
+        'and user activities. For unknown events, distinguish genuine system malfunctions '
+        'from routine operations, expected access rejections, and harmless diagnostics. '
+        'Treat an event as a fault when logs provide clear evidence of an unsuccessful '
+        'internal operation, system or service malfunction, or abnormal system behavior, '
+        'including memory exhaustion, forced process termination, and resource allocation '
+        'failures. Authentication failures, client disconnections, connection timeouts, '
+        'and access denials are not system faults by themselves unless they reveal a '
+        'malfunction or disrupted service. Kernel initialization, device configuration, '
+        'audit records, and normal service lifecycle activities are generally not faults '
+        'unless they indicate an actual failure. Evaluate the actual outcome and '
+        'surrounding context rather than error keywords, warnings, or severity alone.'
+    ),
+
+    'zookeeper': (
+        'Apache ZooKeeper service. Apache ZooKeeper distributed coordination service '
+        'managing cluster membership, leader election, client sessions, and replicated '
+        'data. For unknown events, distinguish genuine coordination or service failures '
+        'from expected distributed-system behavior, transient connection issues, and '
+        'routine operations. Treat an event as a fault when logs provide clear evidence '
+        'of an unsuccessful internal operation, quorum or synchronization failure, '
+        'service unavailability, data consistency problems, or abnormal server termination. '
+        'Connection interruptions, election retries, session expirations, socket '
+        'exceptions, and worker thread shutdowns are not necessarily faults unless '
+        'they indicate an actual malfunction, failed operation, or disrupted service. '
+        'Normal leader elections, reconnections, session management, and snapshot '
+        'operations are generally not faults unless they reveal an underlying failure. '
+        'Evaluate the actual outcome and surrounding context rather than warnings, '
+        'exception messages, or severity alone.'
+    ),
+}
+
+
+# -----------------------------------------------------------------------------
+# 2. JUDGE PROMPT TEMPLATE
+# -----------------------------------------------------------------------------
+
+JUDGE_PROMPT_TEMPLATE = """## ROLE
+You are an independent evaluator of software log summaries. Evaluate a generated summary using its original log chunk and system description along three dimensions: (1) Faithfulness of atomic factual claims, (2) coverage of distinct source faults, and (3) Conciseness of relevant, nonredundant information.
+
+## SYSTEM CONTEXT
+{SYSTEM_DESCRIPTION}
+Use this context for interpretation, not evidence that a particular event occurred.
+
+## GENERAL RULES
+- Ground all judgments in the supplied log chunk. Do not invent events, causes, impacts, or outcomes.
+- Judge faults from actual observed behavior and outcomes, not severity, warnings, or error keywords alone. Expected rejections, routine diagnostics, successfully corrected conditions, and normal lifecycle activity are not automatically faults.
+- Accept faithful paraphrasing and appropriate abstraction. Infer causal relationships or recovery only when evidenced.
+- Apply identical semantic criteria to extractive, abstractive, and hybrid summaries. Do not penalize a concise accurate normal-operation description or a correctly empty extractive event selection.
+
+## 1. SOURCE ANALYSIS
+Identify distinct faults (`source_faults`) and informative non-fault events (`source_context`) from the original logs. A fault is an evidenced malfunction, failed operation, resource failure, abnormal termination, or operational disruption. Give exact source event IDs. Group duplicate reports of the same occurrence, but do not merge distinct failures. For context, include meaningful state changes, relevant lifecycle/recovery events, or nearby events that clarify behavior; exclude unimportant repetitive activity. Identify these from the source itself, not from assertions in the summary.
+
+## 2. FAITHFULNESS
+Decompose summary content into atomic factual claims (`atomic_claims`). Classify each distinct claim `supported`, `unsupported`, or `contradicted`, based on source event evidence. Split separable assertions (including causal and outcome claims); do not count the same factual claim twice merely because it appears in different fields. Give brief reasons for non-supported decisions. A chunk-bounded statement of normal operation or no observed faults can be supported when the evidence warrants it.
+
+## 3. FAULT COVERAGE
+For each identified source fault, determine whether at least one **supported** summary claim communicates the essential fault (`fault_coverage`). Match semantically, not by wording; do not count unsupported speculation or normal context as fault coverage. Link each covered fault to its supporting claim IDs; briefly explain omissions.
+
+## 4. CONCISENESS AND CONTEXT
+Identify summary information units (`summary_units`), including substantive claims expressed in structured fields or selected log events. Classify each occurrence as:
+- `informative`: supported fault information, meaningful non-fault context, operational outcome, or appropriate concise normal-operation description;
+- `uninformative`: routine, irrelevant, unsupported, or unnecessary information that adds no useful grounded insight;
+- `redundant`: unnecessary repetition of information already conveyed.
+Assess relevance, not length or format. Distinct factual claims are counted once for Faithfulness, while unnecessary repeated occurrences are retained separately for Conciseness. Repeated *source* events may convey a meaningful recurring condition, so describing their recurrence is not inherently redundant. Don't penalize useful identifiers or necessary technical detail. Unsupported assertions are not informative merely because they sound important.
+Record only materially helpful omitted non-fault context in `missing_important_context`; it is diagnostic and not fault coverage. Set `normal_operation_summary` true only if the summary appropriately communicates normal operation or an intentionally empty event selection with no claimed faults.
+
+## INPUT
+Summary type: {SUMMARY_TYPE}
+Original log chunk:
+{LOG_CHUNK}
+Generated summary:
+{SUMMARY}"""

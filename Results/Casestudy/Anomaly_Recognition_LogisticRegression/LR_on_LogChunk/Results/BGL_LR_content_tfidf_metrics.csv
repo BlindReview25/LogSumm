@@ -1,0 +1,4 @@
+W,summary_type,feature_mode,n_train,n_validation,n_test,anomalies_train,anomalies_validation,anomalies_test,n_features,best_C,validation_F1,precision,recall,F1,accuracy,TP,FP,TN,FN,train_grid_seconds,test_predict_seconds,prediction_csv
+5,abstractive,content_tfidf,605,156,1077,55,19,77,26680,100,0.8125,0.9791666666666666,0.6103896103896104,0.752,0.9712163416898792,47,1,999,30,0.9488084699996762,0.0013063100004728767,BGL_LR_w5_abstractive_content_tfidf_predictions.csv
+10,abstractive,content_tfidf,535,165,1304,59,18,94,42743,100,0.6896551724137931,0.9705882352941176,0.7021276595744681,0.8148148148148148,0.9769938650306749,66,2,1208,28,1.144897958999536,0.0015400029997181264,BGL_LR_w10_abstractive_content_tfidf_predictions.csv
+15,abstractive,content_tfidf,509,142,1302,70,11,111,58509,10,0.6666666666666666,1.0,0.6036036036036037,0.7528089887640449,0.9662058371735791,67,0,1191,44,2.8534465989996534,0.003800445999331714,BGL_LR_w15_abstractive_content_tfidf_predictions.csv

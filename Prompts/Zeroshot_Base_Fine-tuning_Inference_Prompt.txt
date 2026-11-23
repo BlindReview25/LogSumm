@@ -1,0 +1,82 @@
+# LogSumm — System Descriptions and Summarization Prompts
+# Content preserved; formatting only.
+
+# ============================================================
+# 1. SYSTEM DESCRIPTIONS
+# ============================================================
+
+SYSTEM_DESCRIPTIONS = {
+    'bgl': (
+        'IBM BlueGene/L supercomputer'
+    ),
+    'apache': (
+        'Apache HTTP server. For unknown events, distinguish genuine web-server or application '
+        'failures from expected request handling and routine operation. Treat an event as a fault '
+        'only when the logs provide clear evidence of an unsuccessful internal operation, '
+        'malfunction, or abnormal service behavior. Client-side errors, rejected requests, and '
+        'diagnostic messages are not faults unless they reveal an underlying system problem. '
+        'Consider the event context and outcome rather than severity or error keywords alone.'
+    ),
+    'linux': (
+        'Linux system logs. Look for crashes and uncorrected disk/kernel faults; routine cron and '
+        'successful logins are background.'
+    ),
+    'openstack': (
+        'OpenStack cloud. Look for failed instance operations and broken service dependencies; '
+        'normal API requests are background.'
+    ),
+    'zookeeper': (
+        'Apache ZooKeeper service. Look for failed elections, expired sessions with impact and '
+        'unrecoverable errors; routine disconnects are background.'
+    ),
+}
+
+# ============================================================
+# 2. SUMMARIZATION PROMPTS
+# ============================================================
+
+PROMPTS = {
+    # Extractive summary prompt
+    'extractive': """For each event, decide if it reports a real fault from its content and context. Select a fault only when it clearly shows a real failure (e.g., a crash, uncorrected hardware/I/O fault, or unsuccessful operation). Corrected or recovered notices, diagnostics, counters, periodic messages, and uncertain cases are background. Do not infer unsupported failures or outcomes.
+Provide a nonempty, brief explanation of the main selections. If no faults, begin explanation with "Everything looks normal."
+critical_events: all distinct fault messages, one original representative each, in input order.
+context_events: Choose up to 3 informative background events: lifecycle transitions,
+nearby same-component context, or rare changes. Exclude repeated routine activity,
+status/counters, diagnostics, and already-corrected notices. Keep input order.
+Copy selected lines EXACTLY; retain [id=...].
+explanation and lists must agree. Return JSON only:
+{"explanation":"...","critical_events":[],"context_events":[]}""",
+
+    # Abstractive summary prompt
+    'abstractive': """For each event, decide if it reports a real fault from its content and context. Select a fault only when it clearly shows a real failure (e.g., a crash, uncorrected hardware/I/O fault, or unsuccessful operation). Corrected or recovered notices, diagnostics, counters, periodic messages, and uncertain cases are background. Do not infer unsupported failures or outcomes.
+Write a brief, nonempty explanation of the main selections. If no faults, begin explanation with "Everything looks normal." Qualify inferred faults.
+Write ONE short paragraph: 'The fault:' followed by faults, affected components and
+observed consequences; count repeats if useful. Then 'For background,' with only
+qualifying context: Choose up to 3 informative background events: lifecycle transitions,
+nearby same-component context, or rare changes. Exclude repeated routine activity,
+status/counters, diagnostics, and already-corrected notices. Keep input order.
+If no faults, start summary with "Everything looks normal." and optionally add relevant background.
+Do not invent outcomes or copy full lines. Return JSON only:
+{"explanation":"...","summary":"..."}""",
+
+    # Hybrid summary prompt
+    'hybrid': """For each event, decide if it reports a real fault from its content and context. Select a fault only when it clearly shows a real failure (e.g., a crash, uncorrected hardware/I/O fault, or unsuccessful operation). Corrected or recovered notices, diagnostics, counters, periodic messages, and uncertain cases are background. Do not infer unsupported failures or outcomes.
+Provide a nonempty, brief explanation of the main selections. If no faults, begin explanation with "Everything looks normal." Qualify inferred faults.
+critical_events: every distinct fault message (one exact original line per message).
+context_events: Choose up to 3 informative background events: lifecycle transitions,
+nearby same-component context, or rare changes. Exclude repeated routine activity,
+status/counters, diagnostics, and already-corrected notices. Keep input order.
+Copy selected lines exactly, preserving [id=...] and order.
+When critical_events is nonempty, analysis must contain:
+- fault_category: hardware, memory, storage_io, network, application, configuration, resource, security, unknown,
+- affected_components: verbatim IDs,
+- recovery_state: recovered, unrecovered, unknown,
+- likely_cause: 'undetermined' if unsupported,
+- evidence_ids: critical-event IDs only.
+Add a 1-2 sentence interpretation without invented consequences. If no faults, analysis=null and interpretation="Everything looks normal."; context_events can be nonempty.
+Return JSON only:
+{"explanation":"...","critical_events":[],"context_events":[],
+"analysis":{"fault_category":"...","affected_components":[],"recovery_state":"...",
+"likely_cause":"...","evidence_ids":[]},"interpretation":"..."}""",
+
+}
